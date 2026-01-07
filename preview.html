@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Preview Dev Mode — Feira Funerária</title>
+  <style>
+    :root{--bg:#0b5f80;--panel:#ffffff;--muted:#6b7280}
+    body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
+    .wrap{max-width:1200px;margin:24px auto;padding:18px}
+    .panel{background:var(--panel);color:#111;padding:14px;border-radius:10px;display:flex;gap:12px;align-items:center}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    select,input[type=range],button{padding:8px;border-radius:6px;border:1px solid #ddd}
+    button{cursor:pointer}
+    .frame{margin-top:18px;display:flex;justify-content:center}
+    .device-wrap{background:#e6eef3;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+    iframe{border:0;border-radius:8px;background:#fff}
+    .meta{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <h2 style="margin:0;color:#fff">Preview Dev Mode</h2>
+      <div class="meta">Carregado via BrowserSync — atualizações automáticas</div>
+    </div>
+
+    <div class="panel">
+      <div class="controls">
+        <label>Device:
+          <select id="device">
+            <option value="320x568">iPhone SE — 320×568</option>
+            <option value="375x667">iPhone 8 — 375×667</option>
+            <option value="390x844" selected>iPhone 12/13 — 390×844</option>
+            <option value="412x869">Galaxy S10 — 412×869</option>
+            <option value="360x780">Pixel 4 — 360×780</option>
+            <option value="768x1024">iPad — 768×1024</option>
+            <option value="100%">Full width</option>
+          </select>
+        </label>
+
+        <label>Orientation:
+          <select id="orientation">
+            <option value="portrait" selected>Portrait</option>
+            <option value="landscape">Landscape</option>
+          </select>
+        </label>
+
+        <label>Scale:
+          <input id="scale" type="range" min="0.4" max="1.2" step="0.05" value="1">
+        </label>
+
+        <button id="reload">Recarregar iframe</button>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="device-wrap" id="deviceFrame" style="width:390px">
+        <iframe id="preview" src="/" width="390" height="844" title="preview"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const device = document.getElementById('device');
+    const orientation = document.getElementById('orientation');
+    const scale = document.getElementById('scale');
+    const preview = document.getElementById('preview');
+    const deviceFrame = document.getElementById('deviceFrame');
+    const reload = document.getElementById('reload');
+
+    function apply() {
+      let val = device.value;
+      if(val === '100%') {
+        preview.style.width = '100%';
+        preview.style.height = '80vh';
+        deviceFrame.style.width = '100%';
+        deviceFrame.style.padding = '0';
+      } else {
+        let [w,h] = val.split('x').map(Number);
+        if(orientation.value === 'landscape') [w,h] = [h,w];
+        const s = parseFloat(scale.value) || 1;
+        preview.width = Math.round(w);
+        preview.height = Math.round(h);
+        deviceFrame.style.width = (w * s) + 'px';
+        deviceFrame.style.padding = '18px';
+        preview.style.width = (w * s) + 'px';
+        preview.style.height = (h * s) + 'px';
+      }
+    }
+
+    device.addEventListener('change',apply);
+    orientation.addEventListener('change',apply);
+    scale.addEventListener('input',apply);
+    reload.addEventListener('click',()=> preview.contentWindow.location.reload());
+    // initial
+    apply();
+  </script>
+</body>
+</html>
