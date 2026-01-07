@@ -1517,6 +1517,10 @@
     display: none;
    }
 
+   .desktop-nav .nav-btn {
+    display: none;
+   }
+
    /* Melhorias para mobile */
    .section-padding {
     padding: 60px 0;
@@ -1645,6 +1649,18 @@
    .hero-socials {
     justify-content: center;
     margin-bottom: 10px;
+   }
+  }
+
+  @media (min-width: 901px) {
+   .hero-socials {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
    }
   }
  </style>
