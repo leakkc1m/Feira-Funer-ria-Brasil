@@ -1655,14 +1655,15 @@
   @media (min-width: 901px) {
    .hero-socials {
     position: absolute;
-    left: 60px;
-    top: 50%;
+    /* posicionar fora do container central (container max-width: 1100px) */
+    left: calc((100% - 1100px)/2 - 80px);
+    top: 52%;
     transform: translateY(-50%);
     flex-direction: column;
     justify-content: center;
-    gap: 18px;
+    gap: 22px;
     margin-bottom: 0;
-    z-index: 20;
+    z-index: 999;
    }
 
    .hero-social-icon {
