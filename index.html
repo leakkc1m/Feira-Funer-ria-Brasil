@@ -1648,9 +1648,13 @@
    .rotating-word {
     position: static;
     display: inline;
-    opacity: 1;
+    opacity: 0;
     transform: none;
     white-space: normal;
+   }
+
+   .rotating-word.active {
+    opacity: 1;
    }
 
    .hero-subtitle {
