@@ -607,13 +607,22 @@
 
   @media (max-width: 768px) {
    .hero-sponsors-container {
-    flex-direction: column !important;
-    align-items: center;
+    display: block !important;
+    text-align: center;
     gap: 12px;
     padding: 12px;
    }
 
-   .hero-sponsors-title { border-right: none; padding-right: 0; }
+   .hero-sponsors-title { 
+    border-right: none; 
+    padding-right: 0; 
+    margin-bottom: 12px;
+   }
+
+   .sponsors-grid-wrap {
+    margin: 0 auto;
+    max-width: 400px;
+   }
 
     .sponsors-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 14px; }
     .sponsor-logo-hero { max-height: 44px; padding: 6px 8px; max-width: 140px }
