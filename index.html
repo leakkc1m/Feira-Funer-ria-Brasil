@@ -386,6 +386,8 @@
    height: 1em;
    overflow: hidden;
    vertical-align: bottom;
+   /* ensure rotating text has enough room to avoid breaking on desktop */
+   min-width: max-content;
   }
 
   .rotating-word {
@@ -505,28 +507,35 @@
    transform: scale(1.1);
   }
 
+  /* Sponsors: default is relative (mobile-first). On large screens we position absolute at bottom of hero */
   .hero-sponsors-wrapper {
-   position: absolute;
-   bottom: 0;
+   position: relative;
+   bottom: auto;
    left: 0;
    width: 100%;
-    background: linear-gradient(to top, rgba(0, 102, 153, 0.98), rgba(0,102,153,0.96) 30%, transparent 80%);
-    padding: 18px 0 36px 0;
-   z-index: 2;
+   background: linear-gradient(to top, rgba(0, 102, 153, 0.98), rgba(0,102,153,0.96) 20%, transparent 100%);
+   padding: 12px 0 30px 0;
+   z-index: 1;
   }
 
-  /* On small screens make the sponsors section part of normal flow so it doesn't overlap hero content */
-  @media (max-width: 768px) {
-   .hero-sponsors-wrapper {
-    position: relative;
-    bottom: auto;
-    padding: 12px 0 30px 0;
-    background: linear-gradient(to top, rgba(0, 102, 153, 0.98), rgba(0,102,153,0.96) 20%, transparent 100%);
-    z-index: 1;
-   }
+  /* ensure hero content doesn't overlap by adding bottom margin on smaller screens */
+  @media (max-width: 420px) {
+   .hero-content-wrapper { margin-bottom: 6.5rem; }
+   .countdown-container { flex-wrap: wrap; gap: 8px; justify-content: center; }
+   .countdown-box { min-width: 64px; padding: 8px 12px; }
+  }
 
-   /* ensure hero content doesn't overlap by adding bottom margin */
-   .hero-content-wrapper { margin-bottom: 3rem; }
+  /* Large screens: position sponsors absolute inside hero at the bottom */
+  @media (min-width: 901px) {
+   .hero-sponsors-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 102, 153, 0.98), rgba(0,102,153,0.96) 30%, transparent 80%);
+    padding: 18px 0 36px 0;
+    z-index: 2;
+   }
   }
 
   @media (max-width: 420px) {
@@ -1651,19 +1660,16 @@
 
    .rotating-word {
     position: static;
-    display: inline;
+    display: inline-block;
     opacity: 0;
     transform: none;
     white-space: nowrap;
-    font-size: 0.9em;
+    font-size: 0.95em;
+    padding-right: 6px;
    }
 
    .rotating-word.active {
     opacity: 1;
-   }
-
-   .desktop-break {
-    display: none;
    }
 
    .hero-subtitle {
