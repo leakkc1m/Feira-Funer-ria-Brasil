@@ -542,19 +542,24 @@
    width: 100%;
   }
 
+
   .sponsors-grid {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 28px 40px;
+   display: grid;
+   /* use auto-fit so columns adapt to available width and device sizes */
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+   gap: 18px 22px;
    align-items: center;
-   justify-content: flex-start;
+   justify-items: center;
+   width: 100%;
   }
 
   .sponsor-logo-hero {
-   height: 56px;
-   width: auto;
-   margin: 0;
-   padding: 6px 12px;
+   max-height: 56px;
+   width: 100%;
+   max-width: 180px;
+   box-sizing: border-box;
+   margin: 0 auto;
+   padding: 6px 10px;
    background: rgba(255,255,255,0.04);
    border-radius: 6px;
    object-fit: contain;
@@ -562,6 +567,8 @@
    opacity: 0.95;
    transition: transform 0.25s, opacity 0.2s;
   }
+
+  .sponsors-grid a { display:flex; align-items:center; justify-content:center; width:100%; }
 
   .sponsor-logo-hero:hover {
    opacity: 1;
@@ -588,10 +595,19 @@
 
    .hero-sponsors-title { border-right: none; padding-right: 0; }
 
-   .sponsors-grid { justify-content: center; gap: 14px 18px; }
-   .sponsor-logo-hero { height: 44px; padding: 6px 10px }
+    .sponsors-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 14px; }
+    .sponsor-logo-hero { max-height: 44px; padding: 6px 8px; max-width: 140px }
   }
 
+  @media (max-width: 420px) {
+   .sponsors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px; }
+   .sponsor-logo-hero { max-height: 40px; max-width: 140px; padding: 6px 8px }
+  }
+
+  @media (max-width: 360px) {
+   .sponsors-grid { grid-template-columns: 1fr; gap: 10px 12px; }
+   .sponsor-logo-hero { max-height: 48px; max-width: 220px; padding: 8px 12px }
+  }
   /* --- 5. MARQUEE BAR --- */
   .marquee-section {
    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent-green) 33%, var(--color-secondary) 66%, var(--color-accent-red) 100%);

@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80">
-  <rect width="240" height="80" rx="8" fill="#118ab2"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#ffffff">SPONSOR 3</text>
+  <rect width="240" height="80" rx="8" fill="transparent"/>
+  <g fill="#ffffff">
+    <circle cx="40" cy="40" r="18" />
+    <path d="M80 24 h80 a8 8 0 0 1 8 8 v16 a8 8 0 0 1 -8 8 h-80 z" />
+    <rect x="170" y="30" width="40" height="20" rx="6" />
+  </g>
 </svg>
