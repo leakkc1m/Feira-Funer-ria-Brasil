@@ -516,7 +516,7 @@
   }
 
   /* On small screens make the sponsors section part of normal flow so it doesn't overlap hero content */
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
    .hero-sponsors-wrapper {
     position: relative;
     bottom: auto;
@@ -605,9 +605,9 @@
    }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
    .hero-sponsors-container {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
     gap: 12px;
     padding: 12px;
