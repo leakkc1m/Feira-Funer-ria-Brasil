@@ -954,77 +954,93 @@
    color: #f0f0f0;
   }
 
-  /* --- PROGRAMAÇÃO --- */
+  /* --- ESTILOS GERAIS DE NAVEGAÇÃO (ABAS) --- */
   .schedule-tabs {
    display: flex;
    justify-content: center;
-   gap: 20px;
+   gap: 15px;
    margin-bottom: 40px;
    flex-wrap: wrap;
   }
 
   .tab-btn {
-   background: transparent;
-   border: 2px solid var(--color-primary);
-   color: var(--color-primary);
    padding: 12px 30px;
    border-radius: 50px;
+   border: 2px solid var(--color-primary);
+   background: transparent;
+   color: var(--color-primary);
    font-weight: 700;
    cursor: pointer;
    transition: 0.3s;
-   min-width: 180px;
+   min-width: 150px;
   }
 
   .tab-btn:hover {
    transform: translateY(-3px);
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
+  /* Cores ativas para os dias */
   .tab-btn.active.day1 {
-   background: linear-gradient(135deg, var(--color-primary) 0%, #0099ff 100%);
+   background: var(--color-primary);
    color: #fff;
-   border-color: transparent;
   }
 
   .tab-btn.active.day2 {
-   background: linear-gradient(135deg, var(--color-accent-red) 0%, #ff6666 100%);
+   background: var(--color-accent-red);
+   border-color: var(--color-accent-red);
    color: #fff;
-   border-color: transparent;
   }
 
   .tab-btn.active.day3 {
-   background: linear-gradient(135deg, var(--color-accent-green) 0%, #00cc99 100%);
+   background: var(--color-accent-green);
+   border-color: var(--color-accent-green);
    color: #fff;
-   border-color: transparent;
   }
 
-  .schedule-content {
+  /* Animação de entrada */
+  .tab-content {
    display: none;
+   animation: fadeIn 0.5s ease;
   }
 
-  .schedule-content.active {
+  .tab-content.active {
    display: block;
   }
 
+  @keyframes fadeIn {
+   from {
+    opacity: 0;
+    transform: translateY(10px);
+   }
+
+   to {
+    opacity: 1;
+    transform: translateY(0);
+   }
+  }
+
+  /* --- ESTILO 1: CARDS (Para "Imersão" e "Aprofundamento") --- */
   .schedule-item {
    background: #fff;
    padding: 25px;
    margin-bottom: 20px;
    border-radius: 16px;
    display: grid;
-   grid-template-columns: 100px 80px 1fr;
+   grid-template-columns: 90px 80px 1fr;
    align-items: center;
-   gap: 25px;
-   border-left: 6px solid;
+   gap: 20px;
+   border-left: 6px solid #ccc;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-   transition: var(--transition);
+   transition: 0.3s;
   }
 
   .schedule-item:hover {
-   transform: translateX(10px);
+   transform: translateX(5px);
    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
+  /* Cores das bordas laterais */
   .schedule-item.accent-blue {
    border-left-color: var(--color-primary);
   }
@@ -1039,18 +1055,18 @@
 
   .time {
    font-weight: 800;
-   color: var(--color-primary);
-   font-size: 1.6rem;
+   font-size: 1.4rem;
+   color: #333;
    text-align: center;
   }
 
   .speaker-thumb {
-   width: 80px;
-   height: 80px;
+   width: 70px;
+   height: 70px;
    border-radius: 50%;
    overflow: hidden;
-   border: 3px solid #f0f0f0;
-   background: #e0e0e0;
+   background: #eee;
+   border: 2px solid #f0f0f0;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -1062,129 +1078,123 @@
    object-fit: cover;
   }
 
-  .speaker-thumb.empty svg {
-   width: 40px;
-   height: 40px;
+  .speaker-thumb svg {
+   width: 35px;
+   height: 35px;
    fill: #bbb;
   }
 
   .schedule-info h4 {
+   margin: 0 0 5px 0;
    color: var(--color-primary);
-   font-size: 1.3rem;
-   margin-bottom: 5px;
+   font-size: 1.2rem;
    font-weight: 700;
   }
 
   .schedule-info p {
+   margin: 0;
    color: #666;
    font-size: 0.95rem;
-   margin: 0;
   }
 
-  /* --- ILHA DO CONHECIMENTO --- */
-  .ilha-content {
-   display: none;
-  }
-
-  .ilha-content.active {
-   display: block;
-  }
-
-  .ilha-grid {
-   display: grid;
-   grid-template-columns: 100px 1fr 1fr;
-   gap: 20px;
-   margin-bottom: 20px;
-   align-items: start;
+  /* --- ESTILO 2: TABELAS (Para "Ilha do Conhecimento") --- */
+  .table-responsive {
+   overflow-x: auto;
+   margin-bottom: 40px;
    background: #fff;
-   padding: 20px;
    border-radius: 12px;
-   border-left: 6px solid;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  }
-
-  .ilha-time {
-   font-weight: 800;
-   font-size: 1.3rem;
-   text-align: center;
-   align-self: center;
-  }
-
-  .ilha-room {
-   display: flex;
-   flex-direction: column;
-   gap: 5px;
-   padding: 10px;
-   background: #f9f9f9;
-   border-radius: 8px;
    border: 1px solid #eee;
+   padding: 5px;
   }
 
-  .ilha-room-title {
-   font-size: 0.8rem;
+  .custom-table {
+   width: 100%;
+   min-width: 800px;
+   border-collapse: collapse;
+  }
+
+  .custom-table th,
+  .custom-table td {
+   padding: 12px 15px;
+   border: 1px solid #dee2e6;
+   vertical-align: middle;
+  }
+
+  /* Cabeçalhos da Tabela */
+  .header-main th {
+   background: #fff;
+   color: var(--color-primary);
+   font-size: 1.2rem;
+   text-transform: uppercase;
+   border-bottom: 3px solid var(--color-primary);
+   text-align: center;
+   padding: 15px;
+  }
+
+  .header-sub th {
+   background: #c5e0b4;
+   color: #000;
+   text-align: center;
+   font-weight: 700;
+   font-size: 1.1rem;
+  }
+
+  .header-cols th {
+   background: #e2efda;
+   color: #333;
+   text-align: center;
+   font-weight: 700;
+  }
+
+  .time-col {
+   background: #fcfcfc;
    font-weight: 800;
+   color: var(--color-primary);
+   text-align: center;
+   width: 100px;
+   font-size: 1.1rem;
+  }
+
+  .content-col {
+   font-size: 0.95rem;
+   color: #444;
+   line-height: 1.5;
+   vertical-align: top;
+  }
+
+  .content-col strong {
+   color: var(--color-primary-dark);
+  }
+
+  .special-row {
+   background: var(--color-secondary);
+   color: var(--color-primary-dark);
+   font-weight: 800;
+   text-align: center;
    text-transform: uppercase;
    letter-spacing: 1px;
-   margin-bottom: 5px;
-   display: block;
-   border-bottom: 1px solid #eee;
-   padding-bottom: 5px;
   }
 
-  .ilha-theme {
-   font-weight: 700;
-   color: var(--color-primary-dark);
-   font-size: 1rem;
-   line-height: 1.3;
-  }
+  /* Responsivo */
+  @media (max-width: 768px) {
+   .schedule-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+    padding: 20px;
+   }
 
-  .ilha-speaker {
-   font-size: 0.9rem;
-   color: #555;
-   margin-top: 5px;
-   font-style: italic;
-  }
+   .speaker-thumb {
+    margin: 0 auto;
+   }
 
-  /* Cores Específicas por Dia */
-  #ilha-dia1 .ilha-grid {
-   border-left-color: var(--color-primary);
-  }
-
-  #ilha-dia1 .ilha-time {
-   color: var(--color-primary);
-  }
-
-  #ilha-dia1 .ilha-room-title {
-   color: var(--color-primary);
-  }
-
-  #ilha-dia2 .ilha-grid {
-   border-left-color: var(--color-accent-red);
-  }
-
-  #ilha-dia2 .ilha-time {
-   color: var(--color-accent-red);
-  }
-
-  #ilha-dia2 .ilha-room-title {
-   color: var(--color-accent-red);
-  }
-
-  #ilha-dia3 .ilha-grid {
-   border-left-color: var(--color-accent-green);
-  }
-
-  #ilha-dia3 .ilha-time {
-   color: var(--color-accent-green);
-  }
-
-  #ilha-dia3 .ilha-room-title {
-   color: var(--color-accent-green);
-  }
-
-  .ilha-tag-red {
-   color: var(--color-accent-red);
-   font-weight: bold;
+   .time {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    width: 100%;
+   }
   }
 
   /* --- 10. LOCAL --- */
@@ -2393,28 +2403,20 @@
 
  <section id="programacao" class="section-padding">
   <div class="container">
-   <div style="text-align: center;">
-    <h2 class="section-title">Programação</h2>
-   </div>
-   <div class="schedule-tabs">
-    <button class="tab-btn active day1" onclick="openTab('dia1')">DIA 01 (20/05)</button>
-    <button class="tab-btn day2" onclick="openTab('dia2')">DIA 02 (21/05)</button>
-    <button class="tab-btn day3" onclick="openTab('dia3')">DIA 03 (22/05)</button>
+   <div style="text-align: center; margin-bottom: 40px;">
+    <h2 class="section-title">Imersão do Conhecimento</h2>
+    <p class="text-muted" style="margin-top: -20px;">Palco Principal e Palestras Magnas</p>
    </div>
 
-   <div id="dia1" class="schedule-content active">
+   <div class="schedule-tabs" id="tabs-imersao">
+    <button class="tab-btn active day1" onclick="openImersao('imersao-dia1')">QUARTA (20/05)</button>
+    <button class="tab-btn day2" onclick="openImersao('imersao-dia2')">QUINTA (21/05)</button>
+    <button class="tab-btn day3" onclick="openImersao('imersao-dia3')">SEXTA (22/05)</button>
+   </div>
+
+   <div id="imersao-dia1" class="tab-content active">
     <div class="schedule-item accent-blue">
-     <div class="time">09:00</div>
-     <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
-       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-      </svg></div>
-     <div class="schedule-info">
-      <h4>Credenciamento & Café</h4>
-      <p>Saguão Principal</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-green">
-     <div class="time">09:00</div>
+     <div class="time">09:30</div>
      <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
       </svg></div>
@@ -2425,122 +2427,32 @@
     </div>
     <div class="schedule-item accent-red">
      <div class="time">10:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop"></div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200"></div>
      <div class="schedule-info">
       <h4>O Estado da Arte na Tanatopraxia</h4>
       <p>Dr. Carlos Mendes | Auditório Master</p>
      </div>
     </div>
-    <div class="schedule-item accent-green">
-     <div class="time">12:00</div>
-     <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
-       <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" />
-      </svg></div>
-     <div class="schedule-info">
-      <h4>Intervalo para Almoço</h4>
-      <p>Praça de Alimentação</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-red">
-     <div class="time">14:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"></div>
-     <div class="schedule-info">
-      <h4>Workshop: Marketing Digital</h4>
-      <p>Roberto Almeida | Sala Técnica 1</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-red">
-     <div class="time">16:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"></div>
-     <div class="schedule-info">
-      <h4>Psicologia do Luto</h4>
-      <p>Juliana Costa | Sala Verde</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-green">
-     <div class="time">18:00</div>
-     <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
-       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-      </svg></div>
-     <div class="schedule-info">
-      <h4>Encerramento Dia 01</h4>
-      <p>Saguão</p>
-     </div>
-    </div>
    </div>
 
-   <div id="dia2" class="schedule-content">
+   <div id="imersao-dia2" class="tab-content">
     <div class="schedule-item accent-red">
      <div class="time">09:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200&auto=format&fit=crop"></div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200"></div>
      <div class="schedule-info">
       <h4>Painel: Sustentabilidade</h4>
       <p>Sofia Martins | Auditório Master</p>
      </div>
     </div>
-    <div class="schedule-item accent-red">
-     <div class="time">11:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"></div>
-     <div class="schedule-info">
-      <h4>Gestão Humanizada 4.0</h4>
-      <p>Ana Clara Silva | Sala Técnica 2</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-green">
-     <div class="time">12:30</div>
-     <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
-       <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" />
-      </svg></div>
-     <div class="schedule-info">
-      <h4>Almoço Livre</h4>
-      <p>Praça de Alimentação</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-red">
-     <div class="time">14:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"></div>
-     <div class="schedule-info">
-      <h4>Logística e Transporte</h4>
-      <p>Paulo César | Auditório B</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-blue">
-     <div class="time">16:30</div>
-     <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
-       <path d="M2 21h18v-2H2M20 8h-2V5h2m0-2H4v10h14V11H4V6h14v2h2V3z" />
-      </svg></div>
-     <div class="schedule-info">
-      <h4>Coffee Break & Networking</h4>
-      <p>Área de Convivência</p>
-     </div>
-    </div>
    </div>
 
-   <div id="dia3" class="schedule-content">
-    <div class="schedule-item accent-red">
-     <div class="time">09:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"></div>
-     <div class="schedule-info">
-      <h4>Bioética no Atendimento</h4>
-      <p>Larissa Torres | Sala Técnica 1</p>
-     </div>
-    </div>
+   <div id="imersao-dia3" class="tab-content">
     <div class="schedule-item accent-red">
      <div class="time">10:30</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"></div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200"></div>
      <div class="schedule-info">
       <h4>Palestra Magna: Futuro Tecnológico</h4>
       <p>Marcos Viana | Auditório Master</p>
-     </div>
-    </div>
-    <div class="schedule-item accent-green">
-     <div class="time">12:30</div>
-     <div class="speaker-thumb empty"><svg viewBox="0 0 24 24">
-       <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" />
-      </svg></div>
-     <div class="schedule-info">
-      <h4>Almoço de Encerramento</h4>
-      <p>Restaurante VIP</p>
      </div>
     </div>
     <div class="schedule-item accent-blue">
@@ -2557,175 +2469,310 @@
   </div>
  </section>
 
- <section id="ilha" class="section-padding" style="background:#fff;">
+ <section id="aprofundamento" class="section-padding" style="background:#f9f9f9;">
   <div class="container">
-   <div style="text-align: center;">
-    <h2 class="section-title">Ilha do Conhecimento</h2>
+   <div style="text-align: center; margin-bottom: 40px;">
+    <h2 class="section-title">Aprofundamento</h2>
+    <p class="text-muted" style="margin-top: -20px;">Workshops e Salas Técnicas</p>
    </div>
-   <div class="schedule-tabs" id="ilha-tabs">
+
+   <div class="schedule-tabs" id="tabs-aprofundamento">
+    <button class="tab-btn active day1" onclick="openAprofundamento('aprof-dia1')">QUARTA (20/05)</button>
+    <button class="tab-btn day2" onclick="openAprofundamento('aprof-dia2')">QUINTA (21/05)</button>
+    <button class="tab-btn day3" onclick="openAprofundamento('aprof-dia3')">SEXTA (22/05)</button>
+   </div>
+
+   <div id="aprof-dia1" class="tab-content active">
+    <div class="schedule-item accent-green">
+     <div class="time">14:00</div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200"></div>
+     <div class="schedule-info">
+      <h4>Workshop: Marketing Digital</h4>
+      <p>Roberto Almeida | Sala Técnica 1</p>
+     </div>
+    </div>
+    <div class="schedule-item accent-green">
+     <div class="time">16:00</div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200"></div>
+     <div class="schedule-info">
+      <h4>Psicologia do Luto</h4>
+      <p>Juliana Costa | Sala Verde</p>
+     </div>
+    </div>
+   </div>
+
+   <div id="aprof-dia2" class="tab-content">
+    <div class="schedule-item accent-green">
+     <div class="time">11:00</div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200"></div>
+     <div class="schedule-info">
+      <h4>Gestão Humanizada 4.0</h4>
+      <p>Ana Clara Silva | Sala Técnica 2</p>
+     </div>
+    </div>
+    <div class="schedule-item accent-green">
+     <div class="time">14:00</div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200"></div>
+     <div class="schedule-info">
+      <h4>Logística e Transporte</h4>
+      <p>Paulo César | Auditório B</p>
+     </div>
+    </div>
+   </div>
+
+   <div id="aprof-dia3" class="tab-content">
+    <div class="schedule-item accent-green">
+     <div class="time">09:00</div>
+     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200"></div>
+     <div class="schedule-info">
+      <h4>Bioética no Atendimento</h4>
+      <p>Larissa Torres | Sala Técnica 1</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="ilha" class="section-padding">
+  <div class="container">
+   <div style="text-align: center; margin-bottom: 40px;">
+    <h2 class="section-title">Ilha do Conhecimento</h2>
+    <p class="text-muted" style="margin-top: -20px;">Programação dos Pavilhões</p>
+   </div>
+
+   <div class="schedule-tabs" id="tabs-ilha">
     <button class="tab-btn active day1" onclick="openIlha('ilha-dia1')">QUARTA (20/05)</button>
     <button class="tab-btn day2" onclick="openIlha('ilha-dia2')">QUINTA (21/05)</button>
     <button class="tab-btn day3" onclick="openIlha('ilha-dia3')">SEXTA (22/05)</button>
    </div>
 
-   <div id="ilha-dia1" class="ilha-content active">
-    <div class="ilha-grid">
-     <div class="ilha-time">14:30</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Inovadora e <span class="ilha-tag-red">multiespécie</span>, gerando mais acolhimento e oportunidades.</span>
-      <span class="ilha-speaker">Denilson</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">TANATOPRAXIA: Evolução Histórica.</span>
-      <span class="ilha-speaker">Prof. José Eustáquio Pereira Barboza</span>
-     </div>
+   <div id="ilha-dia1" class="tab-content active">
+    <div class="table-responsive">
+     <table class="custom-table">
+      <thead>
+       <tr class="header-main">
+        <th colspan="3">PAVILHÃO DE EXPOSIÇÃO I - GRATUITO</th>
+       </tr>
+       <tr class="header-sub">
+        <th colspan="3">QUARTA - 20/05</th>
+       </tr>
+       <tr class="header-cols">
+        <th style="width:120px;">HORÁRIO</th>
+        <th>ILHA 1</th>
+        <th>ILHA 2</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="time-col">14h</td>
+        <td class="content-col"><strong>Tema:</strong> Inovadora e multiespécie, gerando mais acolhimento e oportunidades, por <strong>Denilson Rocha</strong></td>
+        <td class="content-col">TANATOPRAXIA: Evolução Histórica, com <strong>prof. José Eustáquio Pereira Barboza</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">14h50</td>
+        <td class="content-col">Cobrança (Desafios, ações e teatro) <strong>Aline e Magnus</strong></td>
+        <td class="content-col">Causos e Contos com <strong>Vicente Jales e Zé do Caixão</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">15h40</td>
+        <td class="content-col">Liderança Feminina com <strong>Nazaré Névoa</strong></td>
+        <td class="content-col"><strong>Tema: A arte de transformar despedidas em memória</strong><br><strong>Jonas Zanini</strong> - Consultoria para capacitação de equipes.</td>
+       </tr>
+       <tr>
+        <td class="time-col">16h30</td>
+        <td class="content-col"><strong>Roda de conversa</strong> - Gestão Feminina<br>• Nil (Curitiba) • Carla (Salvador)<br>• Patricia (OFEBAS) • Dona Di (MT)<br>• <strong>Mylena Cooper</strong></td>
+        <td class="content-col">Organização e Inclusão (<strong>Silvana Barreto</strong>)</td>
+       </tr>
+       <tr>
+        <td class="time-col">17h30</td>
+        <td class="content-col" style="font-weight:800; text-align:center;">CASES DO SEGMENTO</td>
+        <td class="content-col"><strong>Tema:</strong> Caminhos da Sustentabilidade com <strong>Simone Cruz</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">18h30</td>
+        <td class="content-col"><strong>Tema:</strong> 3 pilares do Encantamento Funerário por <strong>Sthephanie Heise</strong></td>
+        <td class="content-col"><strong>Tema:</strong> DOULA DA MORTE: LUTO, CUIDADO E PRESENÇA, por <strong>Glenda Agra</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">18h40</td>
+        <td colspan="2" class="special-row">HAPPY HOUR</td>
+       </tr>
+      </tbody>
+     </table>
     </div>
 
-    <div class="ilha-grid">
-     <div class="ilha-time">15:10</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Cobrança (Desafios, ações e teatro)</span>
-      <span class="ilha-speaker">Aline e <span class="ilha-tag-red">Magnus</span></span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Caminhos da Sustentabilidade</span>
-      <span class="ilha-speaker">-</span>
-     </div>
-    </div>
-
-    <div class="ilha-grid">
-     <div class="ilha-time">15:40</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme" style="color:#666; font-style:italic;">CASES SEGMENTO</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Gestão e Liderança</span>
-      <span class="ilha-speaker">Jonas Zanini</span>
-     </div>
-    </div>
-
-    <div class="ilha-grid">
-     <div class="ilha-time">16:15</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Causos e Contos</span>
-      <span class="ilha-speaker">Vicente Jales e Zé do Caixão</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Organização e Inclusão</span>
-      <span class="ilha-speaker">Silvana - Thais Almeida</span>
-     </div>
-    </div>
-
-    <div class="ilha-grid">
-     <div class="ilha-time">16:50</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Roda de conversa - Gestão Feminina</span>
-      <div style="font-size:0.85rem; margin-top:5px; color:#555;">
-       • Nil - Cemitério Curitiba<br>
-       • Carla - Salvador<br>
-       • Patricia - <span class="ilha-tag-red">OFEBAS</span><br>
-       • Dona Di - MT<br>
-       • Mylena - Articuladora
-      </div>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme" style="color:#666; font-style:italic;">CASES SEGMENTO</span>
-     </div>
+    <div class="table-responsive">
+     <table class="custom-table">
+      <thead>
+       <tr class="header-main">
+        <th colspan="3">PAVILHÃO DE EXPOSIÇÃO II - GRATUITO</th>
+       </tr>
+       <tr class="header-sub">
+        <th colspan="3">QUARTA - 20/05</th>
+       </tr>
+       <tr class="header-cols">
+        <th style="width:120px;">HORÁRIO</th>
+        <th>ILHA 3</th>
+        <th>ILHA 4</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="time-col">14h</td>
+        <td class="content-col"><strong>Tema:</strong> Inovadora e multiespécie, gerando mais acolhimento e oportunidades, por <strong>Denilson Rocha</strong></td>
+        <td class="content-col">TANATOPRAXIA: Evolução Histórica, com <strong>prof. José Eustáquio Pereira Barboza</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">14h50</td>
+        <td class="content-col">Cobrança (Desafios, ações e teatro) <strong>Aline e Magnus</strong></td>
+        <td class="content-col">Causos e Contos com <strong>Vicente Jales e Zé do Caixão</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">15h40</td>
+        <td class="content-col">Liderança Feminina com <strong>Nazaré Névoa</strong></td>
+        <td class="content-col"><strong>Tema: A arte de transformar despedidas em memória</strong><br><strong>Jonas Zanini</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">16h30</td>
+        <td class="content-col"><strong>Roda de conversa</strong> - Gestão Feminina</td>
+        <td class="content-col">Organização e Inclusão (<strong>Silvana Barreto</strong>)</td>
+       </tr>
+       <tr>
+        <td class="time-col">17h30</td>
+        <td class="content-col" style="font-weight:800; text-align:center;">CASES DO SEGMENTO</td>
+        <td class="content-col"><strong>Tema:</strong> Caminhos da Sustentabilidade com <strong>Simone Cruz</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">18h30</td>
+        <td class="content-col"><strong>Tema:</strong> 3 pilares do Encantamento Funerário por <strong>Sthephanie Heise</strong></td>
+        <td class="content-col"><strong>Tema:</strong> DOULA DA MORTE: LUTO, CUIDADO E PRESENÇA, por <strong>Glenda Agra</strong></td>
+       </tr>
+       <tr>
+        <td class="time-col">18h40</td>
+        <td colspan="2" class="special-row">HAPPY HOUR</td>
+       </tr>
+      </tbody>
+     </table>
     </div>
    </div>
 
-   <div id="ilha-dia2" class="ilha-content">
-    <div class="ilha-grid">
-     <div class="ilha-time">14:00</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Tecnologia no Luto</span>
-      <span class="ilha-speaker">João Silva</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Marketing Digital para Funerárias</span>
-      <span class="ilha-speaker">Ana Souza</span>
-     </div>
+   <div id="ilha-dia2" class="tab-content">
+    <div class="table-responsive">
+     <table class="custom-table">
+      <thead>
+       <tr class="header-main">
+        <th colspan="3">PAVILHÃO DE EXPOSIÇÃO I - GRATUITO</th>
+       </tr>
+       <tr class="header-sub">
+        <th colspan="3">QUINTA - 21/05</th>
+       </tr>
+       <tr class="header-cols">
+        <th>HORÁRIO</th>
+        <th>ILHA 1</th>
+        <th>ILHA 2</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="time-col">14h</td>
+        <td class="content-col"><strong>Tema:</strong> Inovadora e multiespécie...</td>
+        <td class="content-col">TANATOPRAXIA: Evolução...</td>
+       </tr>
+       <tr>
+        <td class="time-col">18h40</td>
+        <td colspan="2" class="special-row">HAPPY HOUR</td>
+       </tr>
+      </tbody>
+     </table>
     </div>
-    <div class="ilha-grid">
-     <div class="ilha-time">15:10</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Humanização e Atendimento</span>
-      <span class="ilha-speaker">Carla e Equipe</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Sustentabilidade: Práticas e Desafios</span>
-      <span class="ilha-speaker">Sofia Martins</span>
-     </div>
-    </div>
-    <div class="ilha-grid">
-     <div class="ilha-time">16:15</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Inovações Tecnológicas no Setor</span>
-      <span class="ilha-speaker">Marcos Viana</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme" style="color:#666; font-style:italic;">CASES DE SUCESSO</span>
-     </div>
-    </div>
-   </div>
-
-   <div id="ilha-dia3" class="ilha-content">
-    <div class="ilha-grid">
-     <div class="ilha-time">14:00</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">O Futuro do Setor Funerário</span>
-      <span class="ilha-speaker">Painel de Diretoria</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Bioética: Dilemas e Soluções</span>
-      <span class="ilha-speaker">Larissa Torres</span>
-     </div>
-    </div>
-    <div class="ilha-grid">
-     <div class="ilha-time">15:10</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Cerimonial de Despedida</span>
-      <span class="ilha-speaker">Beatriz Souza</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme">Gestão de Equipes de Alta Performance</span>
-      <span class="ilha-speaker">Equipe Técnica</span>
-     </div>
-    </div>
-    <div class="ilha-grid">
-     <div class="ilha-time">16:15</div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 3</span>
-      <span class="ilha-theme">Encerramento e Premiação</span>
-      <span class="ilha-speaker">-</span>
-     </div>
-     <div class="ilha-room">
-      <span class="ilha-room-title">Sala 2</span>
-      <span class="ilha-theme" style="color:#666; font-style:italic;">NETWORKING FINAL</span>
-     </div>
+    <div class="table-responsive">
+     <table class="custom-table">
+      <thead>
+       <tr class="header-main">
+        <th colspan="3">PAVILHÃO DE EXPOSIÇÃO II - GRATUITO</th>
+       </tr>
+       <tr class="header-sub">
+        <th colspan="3">QUINTA - 21/05</th>
+       </tr>
+       <tr class="header-cols">
+        <th>HORÁRIO</th>
+        <th>ILHA 3</th>
+        <th>ILHA 4</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="time-col">14h</td>
+        <td class="content-col"><strong>Tema:</strong> Inovadora e multiespécie...</td>
+        <td class="content-col">TANATOPRAXIA: Evolução...</td>
+       </tr>
+       <tr>
+        <td class="time-col">18h40</td>
+        <td colspan="2" class="special-row">HAPPY HOUR</td>
+       </tr>
+      </tbody>
+     </table>
     </div>
    </div>
 
+   <div id="ilha-dia3" class="tab-content">
+    <div class="table-responsive">
+     <table class="custom-table">
+      <thead>
+       <tr class="header-main">
+        <th colspan="3">PAVILHÃO DE EXPOSIÇÃO I - GRATUITO</th>
+       </tr>
+       <tr class="header-sub">
+        <th colspan="3">SEXTA - 22/05</th>
+       </tr>
+       <tr class="header-cols">
+        <th>HORÁRIO</th>
+        <th>ILHA 1</th>
+        <th>ILHA 2</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="time-col">14h</td>
+        <td class="content-col"><strong>Tema:</strong> Inovadora e multiespécie...</td>
+        <td class="content-col">TANATOPRAXIA: Evolução...</td>
+       </tr>
+       <tr>
+        <td class="time-col">18h40</td>
+        <td colspan="2" class="special-row">HAPPY HOUR</td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="table-responsive">
+     <table class="custom-table">
+      <thead>
+       <tr class="header-main">
+        <th colspan="3">PAVILHÃO DE EXPOSIÇÃO II - GRATUITO</th>
+       </tr>
+       <tr class="header-sub">
+        <th colspan="3">SEXTA - 22/05</th>
+       </tr>
+       <tr class="header-cols">
+        <th>HORÁRIO</th>
+        <th>ILHA 3</th>
+        <th>ILHA 4</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td class="time-col">14h</td>
+        <td class="content-col"><strong>Tema:</strong> Inovadora e multiespécie...</td>
+        <td class="content-col">TANATOPRAXIA: Evolução...</td>
+       </tr>
+       <tr>
+        <td class="time-col">18h40</td>
+        <td colspan="2" class="special-row">HAPPY HOUR</td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
   </div>
  </section>
 
@@ -3080,36 +3127,34 @@
     }, 10);
    }
   }
-
-  function openTab(tabName) {
-   document.querySelectorAll('.schedule-content').forEach(c => c.classList.remove('active'));
-   document.querySelectorAll('#programacao .tab-btn').forEach(b => b.classList.remove('active'));
-   document.getElementById(tabName).classList.add('active');
-   // Lógica de botões específica para a Programação
-   const buttons = document.querySelectorAll('#programacao .tab-btn');
-   if (tabName === 'dia1') buttons[0].classList.add('active');
-   if (tabName === 'dia2') buttons[1].classList.add('active');
-   if (tabName === 'dia3') buttons[2].classList.add('active');
-   gsap.fromTo(`#${tabName} .schedule-item`, {
-    y: 20,
-    opacity: 0
-   }, {
-    y: 0,
-    opacity: 1,
-    duration: 0.4,
-    stagger: 0.1
-   });
+  /* JavaScript de Navegação por Seção */
+  // Função para Seção Imersão
+  function openImersao(tabId) {
+   document.querySelectorAll('#imersao .tab-content').forEach(c => c.classList.remove('active'));
+   document.querySelectorAll('#tabs-imersao .tab-btn').forEach(b => b.classList.remove('active'));
+   document.getElementById(tabId).classList.add('active');
+   // Ativa botão correspondente
+   if (tabId.includes('dia1')) document.querySelector('#tabs-imersao .day1').classList.add('active');
+   if (tabId.includes('dia2')) document.querySelector('#tabs-imersao .day2').classList.add('active');
+   if (tabId.includes('dia3')) document.querySelector('#tabs-imersao .day3').classList.add('active');
   }
-
-  function openIlha(ilhaId) {
-   document.querySelectorAll('.ilha-content').forEach(c => c.classList.remove('active'));
-   document.querySelectorAll('#ilha-tabs .tab-btn').forEach(b => b.classList.remove('active'));
-   document.getElementById(ilhaId).classList.add('active');
-   // Lógica de botões específica para a Ilha
-   const buttons = document.querySelectorAll('#ilha-tabs .tab-btn');
-   if (ilhaId === 'ilha-dia1') buttons[0].classList.add('active');
-   if (ilhaId === 'ilha-dia2') buttons[1].classList.add('active');
-   if (ilhaId === 'ilha-dia3') buttons[2].classList.add('active');
+  // Função para Seção Aprofundamento
+  function openAprofundamento(tabId) {
+   document.querySelectorAll('#aprofundamento .tab-content').forEach(c => c.classList.remove('active'));
+   document.querySelectorAll('#tabs-aprofundamento .tab-btn').forEach(b => b.classList.remove('active'));
+   document.getElementById(tabId).classList.add('active');
+   if (tabId.includes('dia1')) document.querySelector('#tabs-aprofundamento .day1').classList.add('active');
+   if (tabId.includes('dia2')) document.querySelector('#tabs-aprofundamento .day2').classList.add('active');
+   if (tabId.includes('dia3')) document.querySelector('#tabs-aprofundamento .day3').classList.add('active');
+  }
+  // Função para Seção Ilha
+  function openIlha(tabId) {
+   document.querySelectorAll('#ilha .tab-content').forEach(c => c.classList.remove('active'));
+   document.querySelectorAll('#tabs-ilha .tab-btn').forEach(b => b.classList.remove('active'));
+   document.getElementById(tabId).classList.add('active');
+   if (tabId.includes('dia1')) document.querySelector('#tabs-ilha .day1').classList.add('active');
+   if (tabId.includes('dia2')) document.querySelector('#tabs-ilha .day2').classList.add('active');
+   if (tabId.includes('dia3')) document.querySelector('#tabs-ilha .day3').classList.add('active');
   }
   // Share Widget
   const urlToShare = "https://mickaelcasttro.wixstudio.com/my-site-2/feira";
