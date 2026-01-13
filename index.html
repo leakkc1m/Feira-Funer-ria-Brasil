@@ -10,10 +10,10 @@
  <meta property="og:description" content="O maior encontro do setor funerário do Nordeste.">
  <meta property="og:image" content="https://static.wixstatic.com/media/4a9aeb_2226f62268224b4d975eac9d2c2d670b~mv2.webp">
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="preconnect" href__="https://fonts.googleapis.com">
+ <link rel="preconnect" href__="https://fonts.gstatic.com" crossorigin>
+ <link href__="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href__="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -461,7 +461,7 @@
    align-items: center;
    justify-content: center;
    color: #fff;
-   transition: var(--transition);
+   transition: 0.3s;
    text-decoration: none;
   }
 
@@ -867,35 +867,16 @@
   .section-subtitle {
    display: block;
    font-family: var(--font-body);
-   /* Fonte do corpo do texto */
    font-size: 1rem;
-   /* Tamanho legível, mas menor que o título */
    color: #6c757d;
-   /* Cinza suave para contraste elegante */
    text-align: center;
-   /* Centralizado */
    font-weight: 600;
-   /* Leve destaque */
    text-transform: uppercase;
-   /* Caixa alta para sofisticação */
    letter-spacing: 2px;
-   /* Espaçamento entre letras para leveza */
    margin-top: -30px;
-   /* Puxa para cima, aproximando do título */
    margin-bottom: 50px;
-   /* Empurra o conteúdo abaixo */
    position: relative;
    z-index: 2;
-  }
-
-  /* Responsivo para celular */
-  @media (max-width: 768px) {
-   .section-subtitle {
-    font-size: 0.85rem;
-    margin-top: -20px;
-    margin-bottom: 30px;
-    padding: 0 10px;
-   }
   }
 
   /* --- PALESTRANTES --- */
@@ -990,7 +971,7 @@
   }
 
   /* =========================================
-   1. BOTÕES DE INSCRIÇÃO
+   BOTÕES DE INSCRIÇÃO
    ========================================= */
   .btn-inscricao {
    width: 220px;
@@ -1010,6 +991,19 @@
    transition: 400ms ease all;
    margin-top: 20px;
    z-index: 10;
+  }
+
+  /* Cores dos botões */
+  .btn-verde {
+   background: linear-gradient(90deg, #009966 0%, #00bb77 100%);
+  }
+
+  .btn-azul {
+   background: linear-gradient(90deg, #005689 0%, #0077aa 100%);
+  }
+
+  .btn-vermelho {
+   background: linear-gradient(90deg, #ff3333 0%, #ff5555 100%);
   }
 
   /* Efeito das Linhas */
@@ -1044,7 +1038,7 @@
   }
 
   /* =========================================
-   2. CONTAINER CTA (BOTÃO + TEXTO)
+   CONTAINER CTA (BOTÃO + TEXTO)
    ========================================= */
   .cta-row {
    display: flex;
@@ -1064,7 +1058,7 @@
   }
 
   /* =========================================
-   3. ABAS E PROGRAMAÇÃO
+   ABAS E PROGRAMAÇÃO
    ========================================= */
   .schedule-tabs {
    display: flex;
@@ -1110,7 +1104,6 @@
 
   .tab-content {
    display: none !important;
-   /* !important para garantir override */
    animation: fadeIn 0.5s ease;
   }
 
@@ -1207,7 +1200,7 @@
   }
 
   /* =========================================
-   4. TABELAS (ILHA)
+   TABELAS (ILHA)
    ========================================= */
   .table-responsive {
    overflow-x: auto;
@@ -1287,9 +1280,8 @@
   }
 
   /* =========================================
-   5. LOCAL (ESTILOS GLOBAIS)
+   LOCAL
    ========================================= */
-  /* Movido para fora do Media Query para funcionar no Desktop também */
   #local {
    position: relative;
   }
@@ -1297,7 +1289,6 @@
   .venue-grid {
    display: grid;
    grid-template-columns: 1fr 1fr;
-   /* Padrão Desktop: 2 colunas */
    gap: 0;
    background: #fff;
    border-radius: 20px;
@@ -1395,511 +1386,7 @@
    filter: grayscale(0%);
   }
 
-  /* =========================================
-   6. RESPONSIVIDADE (MOBILE)
-   ========================================= */
-  @media (max-width: 768px) {
-
-   /* Ajuste do botão CTA */
-   .cta-row {
-    flex-direction: column;
-    gap: 15px;
-   }
-
-   /* Ajuste dos Cards */
-   .schedule-item {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 10px;
-    padding: 20px;
-   }
-
-   .speaker-thumb {
-    margin: 0 auto;
-   }
-
-   .time {
-    font-size: 1.2rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    width: 100%;
-   }
-
-   /* Ajuste do Local */
-   .venue-grid {
-    grid-template-columns: 1fr;
-    /* Mobile: 1 coluna */
-   }
-
-   .venue-info {
-    padding: 40px 20px;
-   }
-  }
-
-  /* =========================================
-   1. BOTÕES DE INSCRIÇÃO
-   ========================================= */
-  .btn-inscricao {
-   width: 220px;
-   height: 50px;
-   line-height: 50px;
-   padding: 0;
-   border: none;
-   font-family: var(--font-title, sans-serif);
-   font-weight: 700;
-   text-transform: uppercase;
-   text-align: center;
-   color: #fff;
-   cursor: pointer;
-   position: relative;
-   display: inline-block;
-   text-decoration: none;
-   transition: 400ms ease all;
-   margin-top: 20px;
-   z-index: 10;
-  }
-
-  /* Efeito das Linhas */
-  .btn-inscricao:before,
-  .btn-inscricao:after {
-   content: '';
-   position: absolute;
-   top: 0;
-   right: 0;
-   height: 2px;
-   width: 0;
-   box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003, 4px 4px 5px 0px #0002;
-   transition: 400ms ease all;
-  }
-
-  .btn-inscricao:after {
-   right: inherit;
-   top: inherit;
-   left: 0;
-   bottom: 0;
-  }
-
-  .btn-inscricao:hover:before,
-  .btn-inscricao:hover:after {
-   width: 100%;
-   transition: 800ms ease all;
-  }
-
-  .btn-inscricao:hover {
-   background: transparent;
-   box-shadow: none;
-  }
-
-  /* =========================================
-   2. CONTAINER CTA (BOTÃO + TEXTO)
-   ========================================= */
-  .cta-row {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 20px;
-   margin-top: 30px;
-   flex-wrap: wrap;
-  }
-
-  .cta-text {
-   font-family: var(--font-body, sans-serif);
-   font-size: 1.1rem;
-   font-weight: 600;
-   color: #444;
-   margin: 0;
-  }
-
-  /* =========================================
-   3. ABAS E PROGRAMAÇÃO
-   ========================================= */
-  .schedule-tabs {
-   display: flex;
-   justify-content: center;
-   gap: 15px;
-   margin-bottom: 40px;
-   flex-wrap: wrap;
-  }
-
-  .tab-btn {
-   padding: 12px 30px;
-   border-radius: 50px;
-   border: 2px solid var(--color-primary);
-   background: transparent;
-   color: var(--color-primary);
-   font-weight: 700;
-   cursor: pointer;
-   transition: 0.3s;
-   min-width: 150px;
-  }
-
-  .tab-btn:hover {
-   transform: translateY(-3px);
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .tab-btn.active.day1 {
-   background: var(--color-primary);
-   color: #fff;
-  }
-
-  .tab-btn.active.day2 {
-   background: var(--color-accent-red);
-   border-color: var(--color-accent-red);
-   color: #fff;
-  }
-
-  .tab-btn.active.day3 {
-   background: var(--color-accent-green);
-   border-color: var(--color-accent-green);
-   color: #fff;
-  }
-
-  .tab-content {
-   display: none !important;
-   /* !important para garantir override */
-   animation: fadeIn 0.5s ease;
-  }
-
-  .tab-content.active {
-   display: block !important;
-  }
-
-  @keyframes fadeIn {
-   from {
-    opacity: 0;
-    transform: translateY(10px);
-   }
-
-   to {
-    opacity: 1;
-    transform: translateY(0);
-   }
-  }
-
-  /* Cards de Programação */
-  .schedule-item {
-   background: #fff;
-   padding: 25px;
-   margin-bottom: 20px;
-   border-radius: 16px;
-   display: grid;
-   grid-template-columns: 90px 80px 1fr;
-   align-items: center;
-   gap: 20px;
-   border-left: 6px solid #ccc;
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-   transition: 0.3s;
-  }
-
-  .schedule-item:hover {
-   transform: translateX(5px);
-   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .schedule-item.accent-blue {
-   border-left-color: var(--color-primary);
-  }
-
-  .schedule-item.accent-red {
-   border-left-color: var(--color-accent-red);
-  }
-
-  .schedule-item.accent-green {
-   border-left-color: var(--color-accent-green);
-  }
-
-  .time {
-   font-weight: 800;
-   font-size: 1.4rem;
-   color: #333;
-   text-align: center;
-  }
-
-  .speaker-thumb {
-   width: 70px;
-   height: 70px;
-   border-radius: 50%;
-   overflow: hidden;
-   background: #eee;
-   border: 2px solid #f0f0f0;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-  }
-
-  .speaker-thumb img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-  }
-
-  .speaker-thumb svg {
-   width: 35px;
-   height: 35px;
-   fill: #bbb;
-  }
-
-  .schedule-info h4 {
-   margin: 0 0 5px 0;
-   color: var(--color-primary);
-   font-size: 1.2rem;
-   font-weight: 700;
-  }
-
-  .schedule-info p {
-   margin: 0;
-   color: #666;
-   font-size: 0.95rem;
-  }
-
-  /* =========================================
-   4. TABELAS (ILHA)
-   ========================================= */
-  .table-responsive {
-   overflow-x: auto;
-   margin-bottom: 40px;
-   background: #fff;
-   border-radius: 12px;
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-   border: 1px solid #eee;
-   padding: 5px;
-  }
-
-  .custom-table {
-   width: 100%;
-   min-width: 800px;
-   border-collapse: collapse;
-  }
-
-  .custom-table th,
-  .custom-table td {
-   padding: 12px 15px;
-   border: 1px solid #dee2e6;
-   vertical-align: middle;
-  }
-
-  .header-main th {
-   background: #fff;
-   color: var(--color-primary);
-   font-size: 1.2rem;
-   text-transform: uppercase;
-   border-bottom: 3px solid var(--color-primary);
-   text-align: center;
-   padding: 15px;
-  }
-
-  .header-sub th {
-   background: #c5e0b4;
-   color: #000;
-   text-align: center;
-   font-weight: 700;
-   font-size: 1.1rem;
-  }
-
-  .header-cols th {
-   background: #e2efda;
-   color: #333;
-   text-align: center;
-   font-weight: 700;
-  }
-
-  .time-col {
-   background: #fcfcfc;
-   font-weight: 800;
-   color: var(--color-primary);
-   text-align: center;
-   width: 100px;
-   font-size: 1.1rem;
-  }
-
-  .content-col {
-   font-size: 0.95rem;
-   color: #444;
-   line-height: 1.5;
-   vertical-align: top;
-  }
-
-  .content-col strong {
-   color: var(--color-primary-dark);
-  }
-
-  .special-row {
-   background: var(--color-secondary);
-   color: var(--color-primary-dark);
-   font-weight: 800;
-   text-align: center;
-   text-transform: uppercase;
-   letter-spacing: 1px;
-  }
-
-  /* =========================================
-   5. LOCAL (ESTILOS GLOBAIS)
-   ========================================= */
-  /* Movido para fora do Media Query para funcionar no Desktop também */
-  #local {
-   position: relative;
-  }
-
-  .venue-grid {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   /* Padrão Desktop: 2 colunas */
-   gap: 0;
-   background: #fff;
-   border-radius: 20px;
-   overflow: hidden;
-   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-  }
-
-  .venue-info {
-   padding: 80px 60px;
-   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-green) 100%);
-   color: #fff;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: flex-start;
-   text-align: left;
-   position: relative;
-   z-index: 20;
-  }
-
-  .venue-info h3 {
-   font-family: var(--font-title);
-   font-size: 2.2rem;
-   margin-bottom: 20px;
-   color: var(--color-secondary);
-   text-transform: uppercase;
-   font-weight: 800;
-   letter-spacing: 1px;
-   width: 100%;
-  }
-
-  .venue-info p {
-   font-size: 1.1rem;
-   line-height: 1.8;
-   margin-bottom: 30px;
-   opacity: 0.95;
-   width: 100%;
-  }
-
-  .venue-contacts {
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-   width: 100%;
-  }
-
-  .contact-item {
-   display: flex;
-   align-items: center;
-   gap: 15px;
-   font-size: 1rem;
-   font-weight: 600;
-   color: #fff;
-   position: relative;
-   z-index: 999;
-  }
-
-  .contact-item svg {
-   width: 26px;
-   height: 26px;
-   fill: var(--color-secondary);
-   flex-shrink: 0;
-  }
-
-  .contact-item a {
-   color: #fff;
-   text-decoration: none;
-   transition: 0.3s;
-   border-bottom: 1px solid transparent;
-   position: relative;
-   z-index: 1000;
-   cursor: pointer;
-   display: inline-block;
-   padding: 10px 0;
-   pointer-events: auto !important;
-  }
-
-  .contact-item a:hover {
-   color: var(--color-secondary);
-   border-bottom-color: var(--color-secondary);
-  }
-
-  .venue-map iframe {
-   width: 100%;
-   height: 100%;
-   min-height: 450px;
-   border: 0;
-   filter: grayscale(100%);
-   transition: 0.3s;
-   position: relative;
-   z-index: 1;
-  }
-
-  .venue-map iframe:hover {
-   filter: grayscale(0%);
-  }
-
-  /* =========================================
-   6. RESPONSIVIDADE (MOBILE)
-   ========================================= */
-  @media (max-width: 768px) {
-
-   /* Ajuste do botão CTA */
-   .cta-row {
-    flex-direction: column;
-    gap: 15px;
-   }
-
-   /* Ajuste dos Cards */
-   .schedule-item {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 10px;
-    padding: 20px;
-   }
-
-   .speaker-thumb {
-    margin: 0 auto;
-   }
-
-   .time {
-    font-size: 1.2rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    width: 100%;
-   }
-
-   /* Ajuste do Local */
-   .venue-grid {
-    grid-template-columns: 1fr;
-    /* Mobile: 1 coluna */
-   }
-
-   .venue-info {
-    padding: 40px 20px;
-   }
-  }
-
-  /* MAPA: BUSCA PÚBLICA (SEM API KEY) */
-  .venue-map iframe {
-   width: 100%;
-   height: 100%;
-   min-height: 450px;
-   border: 0;
-   filter: grayscale(100%);
-   transition: 0.3s;
-   position: relative;
-   z-index: 1;
-  }
-
-  .venue-map iframe:hover {
-   filter: grayscale(0%);
-  }
-
-  /* --- 11. CTA & FOOTER --- */
+  /* --- CTA & FOOTER --- */
   #inscricao {
    position: relative;
    z-index: 10;
@@ -2100,7 +1587,6 @@
    position: relative;
   }
 
-  /* CSS CORRIGIDO PARA IMAGEM GRANDE NO LIGHTBOX */
   .modal-content.photo-content {
    background: transparent;
    width: 100%;
@@ -2122,7 +1608,6 @@
    border-radius: 4px;
    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
    pointer-events: auto;
-   /* Permite clique na imagem se necessário */
   }
 
   .modal-img-col img {
@@ -2135,10 +1620,8 @@
    padding: 40px;
   }
 
-  /* BOTÃO FECHAR CORRIGIDO (FIXED) */
   .modal-close-btn {
    position: fixed;
-   /* Fixado na tela, não no modal */
    top: 30px;
    right: 30px;
    cursor: pointer;
@@ -2152,7 +1635,6 @@
    font-weight: bold;
    font-size: 1.5rem;
    z-index: 10001;
-   /* Camada ultra-alta */
    color: #333;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
    pointer-events: auto !important;
@@ -2322,6 +1804,9 @@
    color: #555;
   }
 
+  /* =========================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================= */
   @media (max-width: 900px) {
    .desktop-nav {
     display: none !important;
@@ -2558,20 +2043,9 @@
     text-align: center;
    }
 
-   .ilha-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-   }
-
-   .ilha-time {
-    width: 100%;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-   }
-
-   .ilha-room {
-    text-align: left;
+   .cta-row {
+    flex-direction: column;
+    gap: 15px;
    }
 
    .modal-content.speaker-content {
@@ -2628,6 +2102,17 @@
     width: 50px;
     height: 50px;
    }
+
+   .venue-info {
+    padding: 40px 20px;
+   }
+
+   .section-subtitle {
+    font-size: 0.85rem;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+   }
   }
  </style>
 </head>
@@ -2637,14 +2122,14 @@
  <div class="mobile-menu-overlay" id="mobileMenu">
   <button class="mobile-close-btn" onclick="toggleMenu()">✕</button>
   <ul>
-   <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-   <li><a href="#sobre" onclick="toggleMenu()">O Evento</a></li>
-   <li><a href="#local" onclick="toggleMenu()">Local</a></li>
-   <li><a href="#palestrantes" onclick="toggleMenu()">Palestrantes</a></li>
-   <li><a href="#programacao" onclick="toggleMenu()">Agenda</a></li>
-   <li><a href="#aprofundamento" onclick="toggleMenu()">Aprofundamento</a></li>
-   <li><a href="#ilha" onclick="toggleMenu()">Ilha</a></li>
-   <li><a href="#inscricao" onclick="toggleMenu()" style="color:var(--color-secondary)">Inscreva-se</a></li>
+   <li><a href__="#home" onclick="toggleMenu()">Home</a></li>
+   <li><a href__="#sobre" onclick="toggleMenu()">O Evento</a></li>
+   <li><a href__="#local" onclick="toggleMenu()">Local</a></li>
+   <li><a href__="#palestrantes" onclick="toggleMenu()">Palestrantes</a></li>
+   <li><a href__="#programacao" onclick="toggleMenu()">Agenda</a></li>
+   <li><a href__="#aprofundamento" onclick="toggleMenu()">Aprofundamento</a></li>
+   <li><a href__="#ilha" onclick="toggleMenu()">Ilha</a></li>
+   <li><a href__="#inscricao" onclick="toggleMenu()" style="color:var(--color-secondary)">Inscreva-se</a></li>
   </ul>
  </div>
 
@@ -2658,16 +2143,16 @@
     <p id="m-role" style="color:#666; font-weight:600; margin-bottom:20px; padding-bottom:15px; border-bottom:2px solid var(--color-secondary); display:inline-block;"></p>
     <p id="m-bio" style="line-height:1.6; color:#555;"></p>
     <div class="modal-socials">
-     <a href="#" target="_blank" class="social-icon social-web" id="s-site"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <a href__="#" target="_blank" class="social-icon social-web" id="s-site"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-1.07 3.9-2.1 5.4z" />
       </svg></a>
-     <a href="#" target="_blank" class="social-icon social-fb" id="s-fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <a href__="#" target="_blank" class="social-icon social-fb" id="s-fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.641c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z" />
       </svg></a>
-     <a href="#" target="_blank" class="social-icon social-in" id="s-linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <a href__="#" target="_blank" class="social-icon social-in" id="s-linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
       </svg></a>
-     <a href="#" target="_blank" class="social-icon social-ig" id="s-insta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+     <a href__="#" target="_blank" class="social-icon social-ig" id="s-insta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
       </svg></a>
     </div>
@@ -2684,22 +2169,22 @@
 
  <header id="main-header">
   <div class="container nav-wrapper">
-   <a href="#home" class="logo-link"><img src="https://static.wixstatic.com/media/4a9aeb_cc6c9a2ae372418ead0da8d073fcdea1~mv2.png" class="logo-img"></a>
+   <a href__="#home" class="logo-link"><img src="https://static.wixstatic.com/media/4a9aeb_cc6c9a2ae372418ead0da8d073fcdea1~mv2.png" class="logo-img"></a>
 
    <nav class="desktop-nav">
     <ul>
-     <li><a href="#home">Home</a></li>
-     <li><a href="#sobre">O Evento</a></li>
-     <li><a href="#local">Local</a></li>
-     <li><a href="#palestrantes">Palestrantes</a></li>
-     <li><a href="#programacao">Agenda</a></li>
-     <li><a href="#aprofundamento">Aprofundamento</a></li>
-     <li><a href="#ilha">Ilha</a></li>
+     <li><a href__="#home">Home</a></li>
+     <li><a href__="#sobre">O Evento</a></li>
+     <li><a href__="#local">Local</a></li>
+     <li><a href__="#palestrantes">Palestrantes</a></li>
+     <li><a href__="#programacao">Agenda</a></li>
+     <li><a href__="#aprofundamento">Aprofundamento</a></li>
+     <li><a href__="#ilha">Ilha</a></li>
     </ul>
    </nav>
 
    <div class="header-cta">
-    <a href="#inscricao" class="btn nav-btn">Inscrição</a>
+    <a href__="#inscricao" class="btn nav-btn">Inscrição</a>
     <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
    </div>
   </div>
@@ -2709,18 +2194,18 @@
   <div class="parallax-bg-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_33604519e73240d4a860469917d48199~mv2.jpg" class="parallax-img"></div>
   <div class="blue-overlay"></div>
   <div class="hero-socials">
-   <a href="#" class="hero-social-icon social-ig">
+   <a href__="#" class="hero-social-icon social-ig">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
      <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
     </svg>
    </a>
-   <a href="#" class="hero-social-icon social-fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+   <a href__="#" class="hero-social-icon social-fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
     </svg></a>
-   <a href="#" class="hero-social-icon social-yt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+   <a href__="#" class="hero-social-icon social-yt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
     </svg></a>
-   <a href="#" class="hero-social-icon social-in"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+   <a href__="#" class="hero-social-icon social-in"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
     </svg></a>
   </div>
@@ -2737,7 +2222,7 @@
    </div>
    <p class="hero-subtitle">Conectando tradição e tecnologia em um dos maiores encontros funerários do Brasil.</p>
    <div class="hero-cta-line">
-    <a href="#inscricao" class="btn">Garantir Minha Vaga</a>
+    <a href__="#inscricao" class="btn">Garantir Minha Vaga</a>
     <div class="countdown-container">
      <div class="countdown-box"><span class="count-number" id="days">00</span><span class="count-label">DIAS</span></div>
      <div class="countdown-box"><span class="count-number" id="hours">00</span><span class="count-label">HRS</span></div>
@@ -2751,6 +2236,9 @@
     <div class="hero-sponsors-title">Patrocinadores Oficiais</div>
     <div class="sponsors-ticker-wrap">
      <div class="sponsors-ticker">
+      <img src="https://static.wixstatic.com/media/4a9aeb_cc0a947938e84bedb2fc8bc4139eb0e0~mv2.png" class="sponsor-logo-hero">
+      <img src="https://static.wixstatic.com/media/4a9aeb_1e730387bad6403ea21fed7ec4e6dce7~mv2.png" class="sponsor-logo-hero">
+      <img src="https://static.wixstatic.com/media/4a9aeb_24bd9c789aea406b856ad509f7beb4e0~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_cc0a947938e84bedb2fc8bc4139eb0e0~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_1e730387bad6403ea21fed7ec4e6dce7~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_24bd9c789aea406b856ad509f7beb4e0~mv2.png" class="sponsor-logo-hero">
@@ -2791,28 +2279,28 @@
     <div class="key-aspects-list">
      <div class="key-item">
       <div class="key-number">1.</div>
-      <div>
+      <div class="key-content">
        <h4>Localização Estratégica</h4>
        <p>Recife é o hub do Nordeste.</p>
       </div>
      </div>
      <div class="key-item">
       <div class="key-number">2.</div>
-      <div>
+      <div class="key-content">
        <h4>Infraestrutura Completa</h4>
        <p>Recife Expo Center oferece conforto.</p>
       </div>
      </div>
      <div class="key-item">
       <div class="key-number">3.</div>
-      <div>
+      <div class="key-content">
        <h4>Networking Global</h4>
        <p>Rodadas de negócios exclusivas.</p>
       </div>
      </div>
      <div class="key-item">
       <div class="key-number">4.</div>
-      <div>
+      <div class="key-content">
        <h4>Cultura e Turismo</h4>
        <p>Aproveite o melhor de Pernambuco.</p>
       </div>
@@ -2848,7 +2336,17 @@
       <img src="https://static.wixstatic.com/media/4a9aeb_86626212d7a34823875729a60e56362f~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_b240299f84b641998e8b37b2b0158274~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_47a856e93a67479f892ee2868eaa8e06~mv2.jpg">
-      <img src="hhttps://static.wixstatic.com/media/4a9aeb_54454d5e676a44efbe727897d6b19bfd~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_54454d5e676a44efbe727897d6b19bfd~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_ba62d70651e649f3a3c3182437ffe583~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_1dcf3ed334164b57b97c2aadd32c5d0a~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_69cdaba8c3d94ad58565d0e01624c792~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_14fa91b5208e410399f35ae69010361b~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_218c211ad8e7425191fc3382c9f107c6~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_9382469f841846f68f6c4661f27fb551~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_86626212d7a34823875729a60e56362f~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_b240299f84b641998e8b37b2b0158274~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_47a856e93a67479f892ee2868eaa8e06~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_54454d5e676a44efbe727897d6b19bfd~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_ba62d70651e649f3a3c3182437ffe583~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_1dcf3ed334164b57b97c2aadd32c5d0a~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_69cdaba8c3d94ad58565d0e01624c792~mv2.jpg">
@@ -2866,10 +2364,30 @@
       <img src="https://static.wixstatic.com/media/4a9aeb_70a3716e1d0d4a288db8788f10386c15~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_b41759da616e43acb05c98ffb84302f8~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_fa3e886c069a4e2ca15aa6cda68600b4~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_aa28d47b617741feaca2029877cb0811~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_63435a09fe2946bdad3e096cd0e6a85d~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_a7d7e43799754dc8ab61d5f59ce34fc4~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_531a2a7806304a3aa117e289ebc3710f~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_a6e83da8256d4782891367686d8a4f48~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_7fab1a2e1bd243d1beeac933e4394a6f~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_96ab9ff178034501ba79687e5e485a4b~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_70a3716e1d0d4a288db8788f10386c15~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_b41759da616e43acb05c98ffb84302f8~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_fa3e886c069a4e2ca15aa6cda68600b4~mv2.jpg">
      </div>
     </div>
     <div class="gallery-scroller scroller-left">
      <div class="scroller-inner">
+      <img src="https://static.wixstatic.com/media/4a9aeb_78c4c1b28376433ba5ae5082451c46e0~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_99077069a84b4f1c8bef8d345065f3ff~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_7b75f6712866461aaf7caf986a065e16~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_51d1d2ea6fdc46a4a44ee167c6c315a7~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_689d545033334ac9bc740197458ce8d6~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_a7906062dc82452a9ba91866947e4999~mv2.jpg">
+      <img src="https://static.wixstatic.com/media/4a9aeb_462f29d22ce14abaa135d8ce7e75110a~mv2.jpg">
+      <img src="https://images.unsplash.com/photo-1504384308090-c54be3855833?q=80&w=400&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=400&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&auto=format&fit=crop">
       <img src="https://static.wixstatic.com/media/4a9aeb_78c4c1b28376433ba5ae5082451c46e0~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_99077069a84b4f1c8bef8d345065f3ff~mv2.jpg">
       <img src="https://static.wixstatic.com/media/4a9aeb_7b75f6712866461aaf7caf986a065e16~mv2.jpg">
@@ -3003,7 +2521,7 @@
   <div class="container">
    <div class="cta-row">
     <p class="cta-text">Garanta sua vaga no Palco Principal:</p>
-    <a href="#inscricao" class="btn-inscricao btn-verde">FAÇA SUA INSCRIÇÃO</a>
+    <a href__="#inscricao" class="btn-inscricao btn-verde">FAÇA SUA INSCRIÇÃO</a>
    </div>
    <div style="text-align: center; margin-bottom: 40px;">
     <h2 class="section-title">Imersão do Conhecimento</h2>
@@ -3074,7 +2592,7 @@
   <div class="container">
    <div class="cta-row">
     <p class="cta-text">Participe dos Workshops Exclusivos:</p>
-    <a href="#inscricao" class="btn-inscricao btn-azul">FAÇA SUA INSCRIÇÃO</a>
+    <a href__="#inscricao" class="btn-inscricao btn-azul">FAÇA SUA INSCRIÇÃO</a>
    </div>
    <div style="text-align: center;">
     <h2 class="section-title">Aprofundamento</h2>
@@ -3144,7 +2662,7 @@
   <div class="container">
    <div class="cta-row">
     <p class="cta-text">Acesso gratuito aos pavilhões:</p>
-    <a href="#inscricao" class="btn-inscricao btn-vermelho">FAÇA SUA INSCRIÇÃO</a>
+    <a href__="#inscricao" class="btn-inscricao btn-vermelho">FAÇA SUA INSCRIÇÃO</a>
    </div>
    <div style="text-align: center;">
     <h2 class="section-title">Ilha do Conhecimento</h2>
@@ -3387,7 +2905,6 @@
     </div>
    </div>
   </div>
-  </div>
  </section>
 
  <section id="local" class="section-padding">
@@ -3408,20 +2925,18 @@
        <svg viewBox="0 0 24 24">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-1.07 3.9-2.1 5.4z" />
        </svg>
-       <a href="https://www.recifeexpocenter.com.br" target="_blank">www.recifeexpocenter.com.br</a>
+       <a href__="https://www.recifeexpocenter.com.br" target="_blank">www.recifeexpocenter.com.br</a>
       </div>
       <div class="contact-item">
        <svg viewBox="0 0 24 24">
-        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
        </svg>
-       <a href="https://instagram.com/recifeexpocenter" target="_blank">@recifeexpocenter</a>
+       <a href__="https://instagram.com/recifeexpocenter" target="_blank">@recifeexpocenter</a>
       </div>
      </div>
     </div>
     <div class="venue-map">
-     <div style="width:100%;height:100%;background:#eee;display:flex;align-items:center;justify-content:center;color:#666;">
-      <iframe src="https://maps.google.com/maps?q=Recife+Expo+Center&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-     </div>
+     <iframe src="https://maps.google.com/maps?q=Recife+Expo+Center&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
    </div>
   </div>
@@ -3433,7 +2948,7 @@
   <div class="container" style="text-align:center;">
    <h2 style="font-family:var(--font-title); font-size:2.5rem; color:#fff; margin-bottom:20px;">GARANTA SUA PARTICIPAÇÃO</h2>
    <p style="color:#fff; font-size:1.2rem; max-width:800px; margin:0 auto 30px auto; line-height:1.6;">Não fique de fora de um dos mais importantes encontros do setor na América Latina. Conecte-se com líderes, descubra inovações e transforme o futuro do seu negócio. <strong>As vagas são limitadas!</strong></p>
-   <a href="#" class="btn">INSCREVA-SE</a>
+   <a href__="#" class="btn">INSCREVA-SE</a>
   </div>
  </section>
 
@@ -3441,9 +2956,9 @@
   <div class="container">
    <div class="footer-content-grid">
     <div class="footer-col">
-     <img src="https://via.placeholder.com/200x60/ffffff/000000?text=LOGO" style="filter:brightness(0) invert(1);">
+     <img src="https://static.wixstatic.com/media/4a9aeb_cc6c9a2ae372418ead0da8d073fcdea1~mv2.png" class="footer-logo">
      <br><br>
-     <a href="mailto:contato@feirafuneraria.com.br" class="footer-contact-email">
+     <a href__="mailto:contato@feirafuneraria.com.br" class="footer-contact-email">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
       </svg>
@@ -3453,29 +2968,29 @@
     <div class="footer-col">
      <h4>Links Rápidos</h4>
      <ul class="footer-links-list">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#sobre">O Evento</a></li>
-      <li><a href="#local">Local</a></li>
-      <li><a href="#palestrantes">Palestrantes</a></li>
-      <li><a href="#programacao">Agenda</a></li>
-      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href__="#home">Home</a></li>
+      <li><a href__="#sobre">O Evento</a></li>
+      <li><a href__="#local">Local</a></li>
+      <li><a href__="#palestrantes">Palestrantes</a></li>
+      <li><a href__="#programacao">Agenda</a></li>
+      <li><a href__="#inscricao">Inscrição</a></li>
      </ul>
     </div>
     <div class="footer-col">
      <h4>Conecte-se</h4>
      <div class="footer-socials">
-      <a href="#" class="footer-social-icon social-fb"><svg viewBox="0 0 24 24">
+      <a href__="#" class="footer-social-icon social-fb"><svg viewBox="0 0 24 24">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.641c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z" />
        </svg></a>
-      <a href="#" class="footer-social-icon social-ig">
+      <a href__="#" class="footer-social-icon social-ig">
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
        </svg>
       </a>
-      <a href="#" class="footer-social-icon social-in"><svg viewBox="0 0 24 24">
+      <a href__="#" class="footer-social-icon social-in"><svg viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
        </svg></a>
-      <a href="#" class="footer-social-icon social-yt"><svg viewBox="0 0 24 24">
+      <a href__="#" class="footer-social-icon social-yt"><svg viewBox="0 0 24 24">
         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
        </svg></a>
      </div>
@@ -3488,24 +3003,20 @@
  </footer>
 
  <div class="share-widget-container">
-
   <div id="customShareMenu" class="share-menu-hidden">
-
-   <a href="javascript:void(0)" onclick="shareTo('whatsapp')" class="share-pill wa">
+   <a href__="javascript:void(0)" onclick="shareTo('whatsapp')" class="share-pill wa">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.599 2.664-.698c.967.592 2.023.869 3.521.867 4.96.002 7.152-3.791 5.769-5.768-1.42-2.029-3.324-6.053-6.494-6.053zM12 2C6.48 2 2 6.48 2 12C2 13.93 2.46 15.71 3.24 17.29L2 22L6.83 20.73C8.32 21.55 10.1 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" />
     </svg>
     WhatsApp
    </a>
-
-   <a href="javascript:void(0)" onclick="shareTo('linkedin')" class="share-pill in">
+   <a href__="javascript:void(0)" onclick="shareTo('linkedin')" class="share-pill in">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>
     LinkedIn
    </a>
-
-   <a href="javascript:void(0)" onclick="shareTo('copy')" class="share-pill cp">
+   <a href__="javascript:void(0)" onclick="shareTo('copy')" class="share-pill cp">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
      <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z" />
     </svg>
@@ -3521,17 +3032,13 @@
     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
    </svg>
   </button>
-
  </div>
 
  <script>
-  // Função para garantir inicialização
   (function() {
    const initAnimations = () => {
-    // 1. Configurar GSAP
     if (typeof gsap !== 'undefined') {
      gsap.registerPlugin(ScrollTrigger);
-     // Hero Parallax (Imagem) - Efeito Ken Burns
      gsap.to(".parallax-img", {
       scale: 1.2,
       y: "5%",
@@ -3540,7 +3047,6 @@
       yoyo: true,
       ease: "sine.inOut"
      });
-     // Hero Animations
      const tl = gsap.timeline();
      tl.from(".hero-title", {
        y: 50,
@@ -3562,7 +3068,6 @@
        opacity: 0,
        duration: 0.8
       }, "-=0.5");
-     // Métricas (Números)
      gsap.utils.toArray(".count-num").forEach(el => {
       const target = el.getAttribute('data-count');
       const obj = {
@@ -3580,7 +3085,6 @@
       });
      });
     }
-    // 2. Texto Rotativo (Troca Simples com Fade e Slide Suave)
     const textElement = document.getElementById('rotating-text');
     const phrases = [
      "O FUTURO",
@@ -3593,29 +3097,23 @@
     ];
     let index = 0;
     if (textElement) {
-     // Configuração inicial para evitar pulos
      textElement.style.transition = "opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
      textElement.style.display = "inline-block";
      setInterval(() => {
-      // Sai para cima com fade out
       textElement.style.opacity = '0';
       textElement.style.transform = 'translateY(-20px)';
       setTimeout(() => {
        index = (index + 1) % phrases.length;
        textElement.innerText = phrases[index];
-       // Prepara para entrar (reset posição invisível)
-       textElement.style.transition = 'none'; // Tira animação para resetar posição
+       textElement.style.transition = 'none';
        textElement.style.transform = 'translateY(20px)';
-       // Força reflow para o navegador perceber a mudança
        void textElement.offsetWidth;
-       // Entra de baixo com fade in
        textElement.style.transition = "opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
        textElement.style.opacity = '1';
        textElement.style.transform = 'translateY(0)';
-      }, 600); // Espera a animação de saída terminar
-     }, 3000); // Tempo de leitura
+      }, 600);
+     }, 3000);
     }
-    // 3. Countdown
     const targetDate = new Date("May 20, 2026 00:00:00").getTime();
     setInterval(() => {
      const now = new Date().getTime();
@@ -3628,18 +3126,15 @@
       document.getElementById("seconds").innerText = String(Math.floor((dist % (1000 * 60)) / 1000)).padStart(2, '0');
      }
     }, 1000);
-    // 4. Slider Drag Logic (With Auto-Scroll Loop)
     const slider = document.getElementById('speakerSlider');
     let autoScrollInterval;
     if (slider) {
      let isDown = false,
       startX, scrollLeft, isDragging = false;
-     // Auto Scroll Logic
      const startAutoScroll = () => {
       clearInterval(autoScrollInterval);
       autoScrollInterval = setInterval(() => {
-       slider.scrollLeft += 1; // Speed
-       // Infinite Loop Reset (approximate)
+       slider.scrollLeft += 1;
        if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
         slider.scrollLeft = 0;
        }
@@ -3648,26 +3143,24 @@
      const stopAutoScroll = () => {
       clearInterval(autoScrollInterval);
      };
-     // Start Loop
      startAutoScroll();
-     // Mouse Events
      slider.addEventListener('mousedown', (e) => {
       isDown = true;
       isDragging = false;
       slider.classList.add('active');
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
-      stopAutoScroll(); // Pause on drag
+      stopAutoScroll();
      });
      slider.addEventListener('mouseleave', () => {
       isDown = false;
       slider.classList.remove('active');
-      startAutoScroll(); // Resume
+      startAutoScroll();
      });
      slider.addEventListener('mouseup', () => {
       isDown = false;
       slider.classList.remove('active');
-      startAutoScroll(); // Resume
+      startAutoScroll();
      });
      slider.addEventListener('mousemove', (e) => {
       if (!isDown) return;
@@ -3677,10 +3170,8 @@
       slider.scrollLeft = scrollLeft - walk;
       if (Math.abs(walk) > 5) isDragging = true;
      });
-     // Touch Events (Mobile)
      slider.addEventListener('touchstart', () => stopAutoScroll());
      slider.addEventListener('touchend', () => startAutoScroll());
-     // Clique Card (Mobile/Desktop) - Abre Modal
      document.querySelectorAll('.speaker-card').forEach(card => {
       card.addEventListener('click', function() {
        if (!isDragging) {
@@ -3696,26 +3187,21 @@
       });
      });
     }
-    // 5. Clique Galeria (Abre Lightbox) - CORRIGIDO PARA IMAGEM GRANDE
     document.querySelectorAll('.gallery-card img').forEach(img => {
      img.addEventListener('click', function() {
-      // Substitui w=400 por w=1600 para alta resolução
       const src = this.src.replace('w=400', 'w=1600').replace('w=600', 'w=1600');
       document.getElementById('lightbox-img').src = src;
       document.getElementById('photo-modal').classList.add('active');
      });
     });
-    // 6. Clique Loop Galeria 2024 (Abre Lightbox) - CORRIGIDO PARA IMAGEM GRANDE
     document.querySelectorAll('.scroller-inner img').forEach(img => {
      img.addEventListener('click', function() {
-      // Substitui w=400 por w=1600 para alta resolução
       const src = this.src.replace('w=400', 'w=1600').replace('w=600', 'w=1600');
       document.getElementById('lightbox-img').src = src;
       document.getElementById('photo-modal').classList.add('active');
      });
     });
    };
-   // Iniciar imediatamente (não esperar 'load' completo do iframe)
    if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAnimations);
    } else {
@@ -3741,23 +3227,19 @@
     }, 10);
    }
   }
-  // Função para Seção Imersão
+
   function openImersao(tabId) {
-   // 1. Esconde todos os conteúdos da seção Imersão
    document.querySelectorAll('#imersao .tab-content').forEach(c => c.classList.remove('active'));
-   // 2. Remove a classe 'active' de todos os botões da Imersão
    document.querySelectorAll('#tabs-imersao .tab-btn').forEach(b => b.classList.remove('active'));
-   // 3. Mostra o conteúdo clicado
    const targetContent = document.getElementById(tabId);
    if (targetContent) {
     targetContent.classList.add('active');
    }
-   // 4. Ativa o botão correspondente (Lógica baseada na classe do dia)
    if (tabId.includes('dia1')) document.querySelector('#tabs-imersao .day1').classList.add('active');
    if (tabId.includes('dia2')) document.querySelector('#tabs-imersao .day2').classList.add('active');
    if (tabId.includes('dia3')) document.querySelector('#tabs-imersao .day3').classList.add('active');
   }
-  // Função para Seção Aprofundamento
+
   function openAprofundamento(tabId) {
    document.querySelectorAll('#aprofundamento .tab-content').forEach(c => c.classList.remove('active'));
    document.querySelectorAll('#tabs-aprofundamento .tab-btn').forEach(b => b.classList.remove('active'));
@@ -3766,7 +3248,7 @@
    if (tabId.includes('dia2')) document.querySelector('#tabs-aprofundamento .day2').classList.add('active');
    if (tabId.includes('dia3')) document.querySelector('#tabs-aprofundamento .day3').classList.add('active');
   }
-  // Função para Seção Ilha
+
   function openIlha(tabId) {
    document.querySelectorAll('#ilha .tab-content').forEach(c => c.classList.remove('active'));
    document.querySelectorAll('#tabs-ilha .tab-btn').forEach(b => b.classList.remove('active'));
@@ -3775,7 +3257,6 @@
    if (tabId.includes('dia2')) document.querySelector('#tabs-ilha .day2').classList.add('active');
    if (tabId.includes('dia3')) document.querySelector('#tabs-ilha .day3').classList.add('active');
   }
-  // Share Widget
   const urlToShare = "https://mickaelcasttro.wixstudio.com/my-site-2/feira";
   const textToShare = "Garanta sua vaga na Feira Funerária Brasil 2026! O maior evento do setor no Nordeste.";
 
