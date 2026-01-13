@@ -863,6 +863,41 @@
    font-weight: bold;
   }
 
+  /* --- SUBTÍTULO DAS SEÇÕES --- */
+  .section-subtitle {
+   display: block;
+   font-family: var(--font-body);
+   /* Fonte do corpo do texto */
+   font-size: 1rem;
+   /* Tamanho legível, mas menor que o título */
+   color: #6c757d;
+   /* Cinza suave para contraste elegante */
+   text-align: center;
+   /* Centralizado */
+   font-weight: 600;
+   /* Leve destaque */
+   text-transform: uppercase;
+   /* Caixa alta para sofisticação */
+   letter-spacing: 2px;
+   /* Espaçamento entre letras para leveza */
+   margin-top: -30px;
+   /* Puxa para cima, aproximando do título */
+   margin-bottom: 50px;
+   /* Empurra o conteúdo abaixo */
+   position: relative;
+   z-index: 2;
+  }
+
+  /* Responsivo para celular */
+  @media (max-width: 768px) {
+   .section-subtitle {
+    font-size: 0.85rem;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+   }
+  }
+
   /* --- PALESTRANTES --- */
   #palestrantes {
    width: 100%;
@@ -1095,6 +1130,32 @@
    margin: 0;
    color: #666;
    font-size: 0.95rem;
+  }
+
+  /* --- CORREÇÃO DE ABAS --- */
+  /* Esconde todo o conteúdo por padrão */
+  .tab-content {
+   display: none !important;
+   /* O !important garante que sobrescreva outros estilos */
+   animation: fadeIn 0.5s ease;
+  }
+
+  /* Mostra apenas o conteúdo que tiver a classe 'active' */
+  .tab-content.active {
+   display: block !important;
+  }
+
+  /* Animação suave */
+  @keyframes fadeIn {
+   from {
+    opacity: 0;
+    transform: translateY(10px);
+   }
+
+   to {
+    opacity: 1;
+    transform: translateY(0);
+   }
   }
 
   /* --- ESTILO 2: TABELAS (Para "Ilha do Conhecimento") --- */
@@ -2046,6 +2107,7 @@
    <li><a href="#local" onclick="toggleMenu()">Local</a></li>
    <li><a href="#palestrantes" onclick="toggleMenu()">Palestrantes</a></li>
    <li><a href="#programacao" onclick="toggleMenu()">Agenda</a></li>
+   <li><a href="#aprofundamento" onclick="toggleMenu()">Aprofundamento</a></li>
    <li><a href="#ilha" onclick="toggleMenu()">Ilha</a></li>
    <li><a href="#inscricao" onclick="toggleMenu()" style="color:var(--color-secondary)">Inscreva-se</a></li>
   </ul>
@@ -2096,6 +2158,7 @@
      <li><a href="#local">Local</a></li>
      <li><a href="#palestrantes">Palestrantes</a></li>
      <li><a href="#programacao">Agenda</a></li>
+     <li><a href="#aprofundamento">Aprofundamento</a></li>
      <li><a href="#ilha">Ilha</a></li>
     </ul>
    </nav>
@@ -2401,7 +2464,7 @@
   </div>
  </section>
 
- <section id="programacao" class="section-padding">
+ <section id="imersao" class="section-padding">
   <div class="container">
    <div style="text-align: center; margin-bottom: 40px;">
     <h2 class="section-title">Imersão do Conhecimento</h2>
@@ -2471,9 +2534,9 @@
 
  <section id="aprofundamento" class="section-padding" style="background:#f9f9f9;">
   <div class="container">
-   <div style="text-align: center; margin-bottom: 40px;">
+   <div style="text-align: center;">
     <h2 class="section-title">Aprofundamento</h2>
-    <p class="text-muted" style="margin-top: -20px;">Workshops e Salas Técnicas</p>
+    <span class="section-subtitle">Workshops e Salas Técnicas</span>
    </div>
 
    <div class="schedule-tabs" id="tabs-aprofundamento">
@@ -2535,9 +2598,9 @@
 
  <section id="ilha" class="section-padding">
   <div class="container">
-   <div style="text-align: center; margin-bottom: 40px;">
+   <div style="text-align: center;">
     <h2 class="section-title">Ilha do Conhecimento</h2>
-    <p class="text-muted" style="margin-top: -20px;">Programação dos Pavilhões</p>
+    <span class="section-subtitle">Programação dos Pavilhões 1 e 2</span>
    </div>
 
    <div class="schedule-tabs" id="tabs-ilha">
@@ -3127,13 +3190,18 @@
     }, 10);
    }
   }
-  /* JavaScript de Navegação por Seção */
   // Função para Seção Imersão
   function openImersao(tabId) {
+   // 1. Esconde todos os conteúdos da seção Imersão
    document.querySelectorAll('#imersao .tab-content').forEach(c => c.classList.remove('active'));
+   // 2. Remove a classe 'active' de todos os botões da Imersão
    document.querySelectorAll('#tabs-imersao .tab-btn').forEach(b => b.classList.remove('active'));
-   document.getElementById(tabId).classList.add('active');
-   // Ativa botão correspondente
+   // 3. Mostra o conteúdo clicado
+   const targetContent = document.getElementById(tabId);
+   if (targetContent) {
+    targetContent.classList.add('active');
+   }
+   // 4. Ativa o botão correspondente (Lógica baseada na classe do dia)
    if (tabId.includes('dia1')) document.querySelector('#tabs-imersao .day1').classList.add('active');
    if (tabId.includes('dia2')) document.querySelector('#tabs-imersao .day2').classList.add('active');
    if (tabId.includes('dia3')) document.querySelector('#tabs-imersao .day3').classList.add('active');
