@@ -127,6 +127,7 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center;
    text-align: center;
    margin-bottom: 40px;
    width: 100%;
@@ -137,7 +138,7 @@
    flex-direction: column;
    align-items: center;
    gap: 15px;
-   margin-bottom: 20px;
+   margin-bottom: 25px;
    width: 100%;
   }
 
@@ -183,6 +184,7 @@
    transition: 0.3s;
    border-radius: 4px;
    display: inline-block;
+   text-align: center;
   }
 
   .btn-verde {
@@ -771,7 +773,7 @@
    object-fit: cover;
   }
 
-  /* PALESTRANTES E GALERIA */
+  /* GALERIA SCROLL */
   #galeria-2024 {
    background-color: #f9f9f9;
    overflow: hidden;
@@ -788,6 +790,8 @@
    display: flex;
    overflow: hidden;
    width: 100%;
+   position: relative;
+   z-index: 1;
   }
 
   .scroller-inner {
@@ -802,6 +806,14 @@
    object-fit: cover;
    border-radius: 10px;
    cursor: pointer;
+   pointer-events: auto;
+   position: relative;
+   z-index: 10;
+   transition: transform 0.3s ease;
+  }
+
+  .scroller-inner img:hover {
+   transform: scale(1.05);
   }
 
   .scroller-left .scroller-inner {
@@ -828,6 +840,7 @@
    }
   }
 
+  /* PALESTRANTES */
   #palestrantes {
    background: #fff;
    overflow: hidden;
@@ -841,6 +854,7 @@
    width: 100%;
   }
 
+  /* Aumentei o tempo para 100s para ficar suave com 3 listas */
   .speakers-track {
    display: flex;
    gap: 30px;
@@ -852,9 +866,14 @@
    animation-play-state: paused;
   }
 
+  /* CORREÇÃO MATEMÁTICA DO LOOP (33.33%) */
   @keyframes scrollSpeakers {
-   to {
-    transform: translateX(-50%);
+   0% {
+    transform: translateX(0);
+   }
+
+   100% {
+    transform: translateX(-33.3333%);
    }
   }
 
@@ -907,7 +926,34 @@
    color: #fff;
   }
 
-  /* AGENDA / TABS / FOOTER - BASE */
+  /* CONTAINER INTERNO PARA CARDS NAS SEÇÕES */
+  .inner-speakers-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 30px;
+   padding: 20px 0 40px 0;
+   border-bottom: 1px solid #ddd;
+   margin-bottom: 30px;
+  }
+
+  .inner-speakers-container .speaker-card {
+   width: 300px;
+   flex: 0 0 300px;
+  }
+
+  .tab-inner-title {
+   width: 100%;
+   text-align: center;
+   font-family: var(--font-title);
+   font-weight: 700;
+   color: #555;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+   font-size: 1.1rem;
+  }
+
+  /* TABS & SCHEDULE */
   .schedule-tabs {
    display: flex;
    justify-content: center;
@@ -1048,6 +1094,40 @@
    fill: #bbb;
   }
 
+  .schedule-info h4 {
+   font-family: var(--font-title);
+   font-weight: 700;
+   color: var(--color-primary);
+   margin-bottom: 5px;
+   font-size: 1.1rem;
+  }
+
+  .schedule-info p {
+   color: #666;
+   font-size: 0.95rem;
+  }
+
+  .pavilion-badge {
+   display: inline-block;
+   padding: 3px 8px;
+   border-radius: 4px;
+   font-size: 0.75rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   margin-bottom: 5px;
+  }
+
+  .badge-pav1 {
+   background: #e3f2fd;
+   color: var(--color-primary);
+  }
+
+  .badge-pav2 {
+   background: #fff3e0;
+   color: var(--color-accent-orange);
+  }
+
+  /* TABLES */
   .table-responsive {
    overflow-x: auto;
    margin-bottom: 40px;
@@ -1119,6 +1199,7 @@
    padding: 20px !important;
   }
 
+  /* LOCAL, FOOTER & MODALS */
   .venue-grid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1460,8 +1541,6 @@
 
   /* --- AJUSTES EXCLUSIVOS PARA MOBILE (< 900px) --- */
   @media (max-width: 900px) {
-
-   /* Geral */
    .section-padding {
     padding: 50px 0;
    }
@@ -1470,7 +1549,6 @@
     font-size: 1.8rem;
    }
 
-   /* Header & Nav */
    .desktop-nav,
    .header-cta .nav-btn {
     display: none;
@@ -1480,7 +1558,6 @@
     display: block;
    }
 
-   /* Hero (CORREÇÕES IMPORTANTES) */
    .hero-title {
     font-size: 2rem;
     white-space: normal;
@@ -1520,7 +1597,6 @@
     gap: 20px;
    }
 
-   /* Cronômetro (Ajuste de tamanho) */
    .countdown-container {
     width: 100%;
     justify-content: center;
@@ -1541,7 +1617,6 @@
     display: none;
    }
 
-   /* Patrocinadores (Correção de sobreposição) */
    .hero-sponsors-wrapper {
     position: relative;
     background: rgba(0, 51, 102, 0.95);
@@ -1571,7 +1646,6 @@
     padding-top: 80px;
    }
 
-   /* Sobre / Métricas (Correção de corte lateral) */
    .metrics-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -1581,7 +1655,6 @@
 
    .metric-box {
     min-width: 0;
-    /* Permite encolher */
     padding: 15px 10px;
    }
 
@@ -1593,7 +1666,6 @@
     font-size: 0.7rem;
    }
 
-   /* Palestrantes (Snap-Scroll) */
    .speakers-track {
     animation: none;
     display: flex;
@@ -1614,7 +1686,17 @@
     height: 320px;
    }
 
-   /* Agenda Mobile Layout */
+   /* Mobile layout for internal grids */
+   .inner-speakers-container {
+    gap: 15px;
+   }
+
+   .inner-speakers-container .speaker-card {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 350px;
+   }
+
    .schedule-item {
     grid-template-columns: 60px 1fr;
     grid-template-rows: auto auto;
@@ -1648,7 +1730,7 @@
     font-size: 0.9rem;
    }
 
-   /* Tabelas Mobile */
+   /* Table Mobile */
    .table-responsive {
     box-shadow: none;
     background: transparent;
@@ -1722,7 +1804,6 @@
     font-size: 1.1rem;
    }
 
-   /* Local & Footer Mobile */
    .venue-map iframe {
     min-height: 250px;
     height: 250px;
@@ -1754,7 +1835,6 @@
     justify-content: center;
    }
 
-   /* Modals Mobile */
    .modal-backdrop {
     z-index: 10000;
     padding: 10px;
@@ -1927,8 +2007,8 @@
      <p>A Feira Funerária Brasil 2026 se consolida como um dos principais encontros de negócios e inovação do setor na América Latina. Durante três dias, reuniremos líderes, especialistas e marcas renomadas para discutir o futuro do mercado, apresentar tecnologias disruptivas e fomentar parcerias estratégicas. Uma imersão completa em conhecimento e networking no coração do Nordeste.</p>
     </div>
     <div class="metrics-grid">
-     <div class="metric-box accent-blue"><span class="metric-number count-num" data-count="90">90+</span><span class="metric-label">Expositores</span></div>
-     <div class="metric-box accent-red"><span class="metric-number count-num" data-count="15">15+</span><span class="metric-label">Palestrantes</span></div>
+     <div class="metric-box accent-blue"><span class="metric-number count-num" data-count="90">95+</span><span class="metric-label">Expositores</span></div>
+     <div class="metric-box accent-red"><span class="metric-number count-num" data-count="15">20+</span><span class="metric-label">Palestrantes</span></div>
      <div class="metric-box accent-yellow"><span class="metric-number count-num" data-count="3000">3000+</span><span class="metric-label">Visitantes</span></div>
      <div class="metric-box accent-green"><span class="metric-number count-num" data-count="15">15+</span><span class="metric-label">Anos de XP</span></div>
     </div>
@@ -2031,96 +2111,107 @@
 
   <div class="speakers-marquee-wrapper">
    <div class="speakers-track">
-    <div class="speaker-card" onclick="openSpeakerModal('Dr. Carlos Mendes', 'Tanatopraxia', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Maurício Filizola', 'Jornada Empreendedora', 'https://static.wixstatic.com/media/4a9aeb_84bc035370af4991b670f6e0541d595b~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_84bc035370af4991b670f6e0541d595b~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Dr. Carlos Mendes</div>
-      <div class="speaker-role">Tanatopraxia</div>
+      <div class="speaker-name">Maurício Filizola</div>
+      <div class="speaker-role">Jornada Empreendedora</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Ana Clara Silva', 'Gestão', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Crisa Santos', 'Neuro Arquitetura e profissionais da área', 'https://static.wixstatic.com/media/4a9aeb_28c997b13a2d4624abf096316fedf576~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_28c997b13a2d4624abf096316fedf576~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Ana Clara Silva</div>
-      <div class="speaker-role">Gestão</div>
+      <div class="speaker-name">Crisa Santos</div>
+      <div class="speaker-role">Neuro Arquitetura e profissionais da área
+      </div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Roberto Almeida', 'Marketing', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('César Pancinha', 'Vendas e Impactos', 'https://static.wixstatic.com/media/4a9aeb_1da05e5bbcb6437ba047c37693663a7b~mv2.jpg?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_1da05e5bbcb6437ba047c37693663a7b~mv2.jpg?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Roberto Almeida</div>
-      <div class="speaker-role">Marketing</div>
+      <div class="speaker-name">César Pancinha</div>
+      <div class="speaker-role">Vendas e Impactos</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Juliana Costa', 'Psicologia', 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Rafael Domenciano', 'Liderar em Tempos de Ruptura: Cultura, Propósito e as Novas Gerações no Trabalho', 'https://static.wixstatic.com/media/4a9aeb_0582447ff7964c2e90ea8045a84bd364~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_0582447ff7964c2e90ea8045a84bd364~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Juliana Costa</div>
-      <div class="speaker-role">Psicologia</div>
+      <div class="speaker-name">Rafael Domenciano</div>
+      <div class="speaker-role">Liderar em Tempos de Ruptura: Cultura, Propósito e as Novas Gerações no Trabalho</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Marcos Viana', 'Tecnologia', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Carice Weber', 'MAG Seguros', 'https://static.wixstatic.com/media/4a9aeb_01134296309b482dbff5e728c0df9555~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_01134296309b482dbff5e728c0df9555~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Marcos Viana</div>
-      <div class="speaker-role">Tecnologia</div>
+      <div class="speaker-name">Carice Weber</div>
+      <div class="speaker-role">MAG Seguros</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Dr. Fernando G.', 'Direito Funerário', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Luiz Dib', 'MAG Seguros', 'https://static.wixstatic.com/media/4a9aeb_955924e842a74ec8a50ed6e257694bc3~mv2.jpeg?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_955924e842a74ec8a50ed6e257694bc3~mv2.jpeg?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Dr. Fernando G.</div>
-      <div class="speaker-role">Direito Funerário</div>
+      <div class="speaker-name">Luiz Dib</div>
+      <div class="speaker-role">MAG Seguros</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Sofia Martins', 'Sustentabilidade', 'https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Lais Xavier', 'Inovação', 'https://static.wixstatic.com/media/4a9aeb_9381ebccc7504380ad19a69fd749dc05~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_9381ebccc7504380ad19a69fd749dc05~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Sofia Martins</div>
-      <div class="speaker-role">Sustentabilidade</div>
+      <div class="speaker-name">Lais Xavier</div>
+      <div class="speaker-role">Inovação</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Paulo César', 'Logística', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Gisela Adissi', 'Oficina de Cerimônias', 'https://static.wixstatic.com/media/4a9aeb_6a993f08c3434ee3b847f3c6fe8d83db~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_6a993f08c3434ee3b847f3c6fe8d83db~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Paulo César</div>
-      <div class="speaker-role">Logística</div>
-     </div>
-    </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Beatriz Souza', 'Cerimonial', 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600" loading="lazy"></div>
-     <div class="speaker-overlay-info">
-      <div class="speaker-name">Beatriz Souza</div>
-      <div class="speaker-role">Cerimonial</div>
+      <div class="speaker-name">Gisela Adissi</div>
+      <div class="speaker-role">Oficina de Cerimônias</div>
      </div>
     </div>
 
-    <div class="speaker-card" onclick="openSpeakerModal('Dr. Carlos Mendes', 'Tanatopraxia', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Dra Paula Machado', 'Soluções de Qualidade do Ar', 'https://static.wixstatic.com/media/4a9aeb_27f844166fd34651b43056ee07711fb1~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_27f844166fd34651b43056ee07711fb1~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Dr. Carlos Mendes</div>
-      <div class="speaker-role">Tanatopraxia</div>
+      <div class="speaker-name">Dra Paula Machado</div>
+      <div class="speaker-role">Soluções de Qualidade do Ar</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Ana Clara Silva', 'Gestão', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600')">
+
+    <div class="speaker-card" onclick="openSpeakerModal('Regina Diniz', 'Saúde Mental e bem-estar nas Organizações', 'https://static.wixstatic.com/media/4a9aeb_53415a9f9a06487f96b95073ce621b31~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_53415a9f9a06487f96b95073ce621b31~mv2.webp?q=80&w=600" loading="lazy"></div>
+     <div class="speaker-overlay-info">
+      <div class="speaker-name">Regina Diniz</div>
+      <div class="speaker-role">Saúde Mental e bem-estar nas Organizações</div>
+     </div>
+    </div>
+    <div class="speaker-card" onclick="openSpeakerModal('Juliana Vieira', 'Habilidades essenciais para o encantamento do cliente', 'https://static.wixstatic.com/media/4a9aeb_1e8ece936a744e31a53c30ec36ffe32b~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_1e8ece936a744e31a53c30ec36ffe32b~mv2.webp?q=80&w=600" loading="lazy"></div>
+     <div class="speaker-overlay-info">
+      <div class="speaker-name">Juliana Vieira</div>
+      <div class="speaker-role">Habilidades essenciais para o encantamento do cliente</div>
+     </div>
+    </div>
+    <div class="speaker-card" onclick="openSpeakerModal('José Haroldo Guimarães Filho', 'Conectividade Humana em tempos de conectividade digital', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600')">
      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Ana Clara Silva</div>
-      <div class="speaker-role">Gestão</div>
+      <div class="speaker-name">José Haroldo Guimarães Filho</div>
+      <div class="speaker-role">Conectividade Humana em tempos de conectividade digital</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Roberto Almeida', 'Marketing', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600')">
+    <div class="speaker-card" onclick="openSpeakerModal('Roberto Taboada', 'Workshop “Desenvolvendo Líderes”', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600')">
      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
-      <div class="speaker-name">Roberto Almeida</div>
-      <div class="speaker-role">Marketing</div>
+      <div class="speaker-name">Roberto Taboada</div>
+      <div class="speaker-role">Workshop “Desenvolvendo Líderes”</div>
      </div>
     </div>
    </div>
   </div>
+  </div>
  </section>
  <section id="imersao" class="section-padding" style="background-color: var(--color-bg);">
   <div class="container">
+
    <div class="section-header-wrapper">
     <div class="cta-row">
      <p class="cta-text">Garanta sua vaga no Palco Principal:</p>
@@ -2137,44 +2228,111 @@
    </div>
 
    <div id="imersao-day1" class="tab-content active">
+
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Mauricio Filizola', 'Jornada Empreendedora', 'https://static.wixstatic.com/media/4a9aeb_84bc035370af4991b670f6e0541d595b~mv2.webp?q=80&w=600')">
+      <div class="speaker-img-wrapper">
+       <img src="https://static.wixstatic.com/media/4a9aeb_84bc035370af4991b670f6e0541d595b~mv2.webp?q=80&w=600" loading="lazy" alt="Mauricio Filizola">
+      </div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Mauricio Filizola</div>
+       <div class="speaker-role">Jornada Empreendedora</div>
+      </div>
+     </div>
+
+     <div class="speaker-card" onclick="openSpeakerModal('Crisa Santos', 'Neuro Arquitetura e profissionais da área', 'https://static.wixstatic.com/media/4a9aeb_28c997b13a2d4624abf096316fedf576~mv2.webp?q=80&w=600')">
+      <div class="speaker-img-wrapper">
+       <img src="https://static.wixstatic.com/media/4a9aeb_28c997b13a2d4624abf096316fedf576~mv2.webp?q=80&w=600" loading="lazy" alt="Crisa Santos">
+      </div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Crisa Santos</div>
+       <div class="speaker-role">Neuro Arquitetura</div>
+      </div>
+     </div>
+    </div>
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
+
     <div class="schedule-item accent-blue">
-     <div class="time">09:30</div>
+     <div class="time">09:00</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-microphone"></i></div>
      <div class="schedule-info">
-      <h4>Abertura Oficial</h4>
+      <h4>Abertura oficial e Reconhecimento 2ª edição - Caminhos da Sustentabilidade – Feira Funerária</h4>
+      <p>(salas 4, 5, 6 e 7)</p>
+     </div>
+    </div>
+
+    <div class="schedule-item accent-blue">
+     <div class="time">10h03 às 11h10</div>
+     <div class="speaker-thumb empty"><i class="fa-solid fa-microphone"></i></div>
+     <div class="schedule-info">
+      <h4>Atração Nacional</h4>
       <p>Palco Principal</p>
      </div>
     </div>
+
     <div class="schedule-item accent-red">
-     <div class="time">10:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Palestrante"></div>
+     <div class="time">11h13 às 12h20</div>
+     <div class="speaker-thumb">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Palestrante">
+     </div>
      <div class="schedule-info">
       <h4>O Estado da Arte na Tanatopraxia</h4>
       <p>Dr. Carlos Mendes | Auditório Master</p>
      </div>
     </div>
    </div>
-
    <div id="imersao-day2" class="tab-content">
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Sofia Martins', 'Sustentabilidade', 'https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600')">
+      <div class="speaker-img-wrapper">
+       <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600" loading="lazy" alt="Sofia Martins">
+      </div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Sofia Martins</div>
+       <div class="speaker-role">Sustentabilidade</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
+
     <div class="schedule-item accent-red">
      <div class="time">09:00</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200" alt="Palestrante"></div>
+     <div class="speaker-thumb">
+      <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200" alt="Palestrante">
+     </div>
      <div class="schedule-info">
       <h4>Painel: Sustentabilidade</h4>
       <p>Sofia Martins | Auditório Master</p>
      </div>
     </div>
    </div>
-
    <div id="imersao-day3" class="tab-content">
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Marcos Viana', 'Tecnologia', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600')">
+      <div class="speaker-img-wrapper">
+       <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600" loading="lazy" alt="Marcos Viana">
+      </div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Marcos Viana</div>
+       <div class="speaker-role">Tecnologia</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
+
     <div class="schedule-item accent-red">
      <div class="time">10:30</div>
-     <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200" alt="Palestrante"></div>
+     <div class="speaker-thumb">
+      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200" alt="Palestrante">
+     </div>
      <div class="schedule-info">
       <h4>Palestra Magna: Futuro Tecnológico</h4>
       <p>Marcos Viana | Auditório Master</p>
      </div>
     </div>
+
     <div class="schedule-item accent-blue">
      <div class="time">14:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-microphone-slash"></i></div>
@@ -2205,6 +2363,24 @@
    </div>
 
    <div id="aprofundamento-day1" class="tab-content active">
+    <h3 class="tab-inner-title">Destaques do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Roberto Almeida', 'Marketing Digital', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Roberto Almeida</div>
+       <div class="speaker-role">Marketing Digital</div>
+      </div>
+     </div>
+     <div class="speaker-card" onclick="openSpeakerModal('Juliana Costa', 'Psicologia do Luto', 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Juliana Costa</div>
+       <div class="speaker-role">Psicologia do Luto</div>
+      </div>
+     </div>
+    </div>
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-blue">
      <div class="time">14:00</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200" alt="Palestrante"></div>
@@ -2224,6 +2400,24 @@
    </div>
 
    <div id="aprofundamento-day2" class="tab-content">
+    <h3 class="tab-inner-title">Destaques do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Ana Clara Silva', 'Gestão Humanizada', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Ana Clara Silva</div>
+       <div class="speaker-role">Gestão Humanizada</div>
+      </div>
+     </div>
+     <div class="speaker-card" onclick="openSpeakerModal('Paulo César', 'Logística', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Paulo César</div>
+       <div class="speaker-role">Logística</div>
+      </div>
+     </div>
+    </div>
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-blue">
      <div class="time">11:00</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200" alt="Palestrante"></div>
@@ -2243,6 +2437,17 @@
    </div>
 
    <div id="aprofundamento-day3" class="tab-content">
+    <h3 class="tab-inner-title">Destaques do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Larissa Torres', 'Bioética', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Larissa Torres</div>
+       <div class="speaker-role">Bioética</div>
+      </div>
+     </div>
+    </div>
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-blue">
      <div class="time">09:00</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200" alt="Palestrante"></div>
@@ -2273,6 +2478,32 @@
    </div>
 
    <div id="ilha-day1" class="tab-content active">
+    <h3 class="tab-inner-title">Palestrantes do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Denilson Rocha', 'Inovação Multiespécie', 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Denilson Rocha</div>
+       <div class="speaker-role">Inovação Multiespécie</div>
+      </div>
+     </div>
+     <div class="speaker-card" onclick="openSpeakerModal('Prof. José Eustáquio', 'Tanatopraxia Histórica', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Prof. José Eustáquio</div>
+       <div class="speaker-role">Tanatopraxia Histórica</div>
+      </div>
+     </div>
+     <div class="speaker-card" onclick="openSpeakerModal('Vicente Jales', 'Causos e Contos', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Vicente Jales</div>
+       <div class="speaker-role">Causos e Contos</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="table-responsive">
      <table class="custom-table">
       <thead>
@@ -2362,6 +2593,25 @@
    </div>
 
    <div id="ilha-day2" class="tab-content">
+    <h3 class="tab-inner-title">Palestrantes do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Dr. Fernando Almeida', 'Gestão de Cemitérios', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Dr. Fernando Almeida</div>
+       <div class="speaker-role">Gestão de Cemitérios</div>
+      </div>
+     </div>
+     <div class="speaker-card" onclick="openSpeakerModal('Eng. Marcos Souza', 'Futuro da Cremação', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Eng. Marcos Souza</div>
+       <div class="speaker-role">Futuro da Cremação</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="table-responsive">
      <table class="custom-table">
       <thead>
@@ -2436,6 +2686,18 @@
    </div>
 
    <div id="ilha-day3" class="tab-content">
+    <h3 class="tab-inner-title">Palestrantes do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Dra. Juliana Costa', 'Direito Funerário', 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Dra. Juliana Costa</div>
+       <div class="speaker-role">Direito Funerário</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="table-responsive">
      <table class="custom-table">
       <thead>
@@ -2528,6 +2790,18 @@
    </div>
 
    <div id="imersao-pet-day1" class="tab-content active">
+    <h3 class="tab-inner-title">Destaques do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Especialista Pet', 'Mercado Pet: Tendências', 'https://images.unsplash.com/photo-1581888227599-77981198520d?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1581888227599-77981198520d?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Especialista Conv.</div>
+       <div class="speaker-role">Mercado Pet: Tendências</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-orange">
      <div class="time">14:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
@@ -2579,6 +2853,18 @@
    </div>
 
    <div id="imersao-pet-day2" class="tab-content">
+    <h3 class="tab-inner-title">Destaques do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Consultor Pet', 'Inovação em Produtos', 'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Consultor Pet</div>
+       <div class="speaker-role">Inovação em Produtos</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-orange">
      <div class="time">14:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
@@ -2598,6 +2884,18 @@
    </div>
 
    <div id="imersao-pet-day3" class="tab-content">
+    <h3 class="tab-inner-title">Destaques do Dia</h3>
+    <div class="inner-speakers-container">
+     <div class="speaker-card" onclick="openSpeakerModal('Futurista Pet', 'O Futuro do Setor', 'https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=600')">
+      <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=600" loading="lazy"></div>
+      <div class="speaker-overlay-info">
+       <div class="speaker-name">Futurista Pet</div>
+       <div class="speaker-role">O Futuro do Setor</div>
+      </div>
+     </div>
+    </div>
+
+    <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-orange">
      <div class="time">14:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
@@ -2715,7 +3013,17 @@
    'Eduardo Lima': 'Pesquisador de novas tecnologias para o setor, incluindo biournas e processos de decomposição acelerada ecológica.',
    'Mônica Ribeiro': 'Arquiteta especializada em projetos de cemitérios parque e crematórios, com foco em conforto ambiental e psicologia do espaço.',
    'Jonas Figueira': 'Engenheiro mecânico especializado em manutenção e operação de fornos crematórios de alta tecnologia.',
-   'Patrícia Alencar': 'Jornalista e especialista em comunicação de crise para empresas do setor funerário. Consultora de imagem corporativa.'
+   'Patrícia Alencar': 'Jornalista e especialista em comunicação de crise para empresas do setor funerário. Consultora de imagem corporativa.',
+   'Denilson Rocha': 'Especialista em inovação e acolhimento para o setor funerário, com foco em novas práticas multiespécie.',
+   'Prof. José Eustáquio': 'Historiador e professor renomado, especialista na evolução histórica da tanatopraxia.',
+   'Aline e Magnus': 'Dupla de consultores focada em estratégias de cobrança humanizada e desafios financeiros.',
+   'Vicente Jales': 'Contador de histórias e especialista em preservar a memória através da tradição oral e cultura.',
+   'Dr. Fernando Almeida': 'Advogado e gestor, especialista em administração de cemitérios e legislações vigentes.',
+   'Eng. Marcos Souza': 'Engenheiro focado em tecnologias de cremação e sustentabilidade ambiental.',
+   'Especialista Pet': 'Veterinário e empresário do ramo pet, com foco em tendências de mercado e comportamento animal.',
+   'Cerimonialista Pet': 'Especialista em criar cerimônias de despedida dignas e emocionantes para animais de estimação.',
+   'Consultor Pet': 'Consultor de negócios focado em inovação e desenvolvimento de produtos para o mercado pet funeral.',
+   'Futurista Pet': 'Pesquisador de tendências futuras para o setor pet, incluindo biotecnologia e novos serviços.'
   };
   document.addEventListener("DOMContentLoaded", function() {
    // --- Rotação de Texto ---
@@ -2767,7 +3075,7 @@
      });
     }
    }, 500);
-   // --- Countdown ---
+   // --- Countdown (Com Segundos) ---
    const targetDate = new Date("May 20, 2026 00:00:00").getTime();
    setInterval(() => {
     const now = new Date().getTime();
@@ -2779,7 +3087,7 @@
      document.getElementById("seconds").innerText = Math.floor((dist % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }
    }, 1000);
-   // --- Header Scroll ---
+   // --- Header Scroll (Fundo Azul) ---
    window.addEventListener('scroll', () => {
     const header = document.getElementById('main-header');
     if (window.scrollY > 50) header.classList.add('scrolled');
@@ -2806,6 +3114,7 @@
    document.getElementById('m-name').innerText = name;
    document.getElementById('m-role').innerText = role;
    document.getElementById('m-img').src = imgSrc;
+   // Inserir biografia dinâmica
    const bioText = speakerBios[name] || "Informações detalhadas sobre a trajetória profissional estarão disponíveis em breve.";
    document.getElementById('m-bio').innerText = bioText;
    document.getElementById('speaker-modal').classList.add('active');
