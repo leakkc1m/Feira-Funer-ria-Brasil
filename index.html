@@ -772,167 +772,234 @@
    height: 100%;
    object-fit: cover;
   }
-  
+
   /* --- SEÇÃO PLANOS E IMERSÕES (Atualizado) --- */
-    #planos-imersao {
-      background-color: var(--color-primary);
-      background-image: radial-gradient(circle at 50% 0%, #004a75 0%, var(--color-primary) 80%);
-      color: #fff;
-      padding: 60px 0;
-    }
+  #planos-imersao {
+   background-color: var(--color-primary);
+   background-image: radial-gradient(circle at 50% 0%, #004a75 0%, var(--color-primary) 80%);
+   color: #fff;
+   padding: 60px 0;
+  }
 
-    #planos-imersao .section-title {
-      color: #fff;
-    }
+  #planos-imersao .section-title {
+   color: #fff;
+  }
 
-    #planos-imersao .section-title::after {
-      background: linear-gradient(90deg, #fff, rgba(255,255,255,0.2));
-    }
+  #planos-imersao .section-title::after {
+   background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.2));
+  }
 
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-      align-items: stretch;
-    }
+  .plans-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 20px;
+   margin-top: 30px;
+   align-items: stretch;
+  }
 
-    .plan-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 4px solid;
-      border-radius: 12px;
-      padding: 25px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s, box-shadow 0.3s;
-      height: 100%;
-    }
+  .plan-card {
+   background: rgba(255, 255, 255, 0.03);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-top: 4px solid;
+   border-radius: 12px;
+   padding: 25px 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   transition: transform 0.3s, box-shadow 0.3s;
+   height: 100%;
+  }
 
-    .plan-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.08);
-    }
+  .plan-card:hover {
+   transform: translateY(-5px);
+   background: rgba(255, 255, 255, 0.08);
+  }
 
-    .card-verde { border-top-color: #00cc66; box-shadow: 0 5px 20px rgba(0, 204, 102, 0.1); }
-    .card-azul { border-top-color: #3399ff; box-shadow: 0 5px 20px rgba(51, 153, 255, 0.1); }
-    .card-vermelho { border-top-color: #ff3333; box-shadow: 0 5px 20px rgba(255, 51, 51, 0.1); }
-    .card-laranja { border-top-color: #ff8800; box-shadow: 0 5px 20px rgba(255, 136, 0, 0.1); }
+  .card-verde {
+   border-top-color: #00cc66;
+   box-shadow: 0 5px 20px rgba(0, 204, 102, 0.1);
+  }
 
-    .card-verde:hover { box-shadow: 0 10px 30px rgba(0, 204, 102, 0.2); }
-    .card-azul:hover { box-shadow: 0 10px 30px rgba(51, 153, 255, 0.2); }
-    .card-vermelho:hover { box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2); }
-    .card-laranja:hover { box-shadow: 0 10px 30px rgba(255, 136, 0, 0.2); }
+  .card-azul {
+   border-top-color: #3399ff;
+   box-shadow: 0 5px 20px rgba(51, 153, 255, 0.1);
+  }
 
-    .plan-title {
-      font-family: var(--font-title);
-      font-size: 1.2rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-      text-align: center;
-      color: #fff;
-      min-height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 0.5px;
-    }
+  .card-vermelho {
+   border-top-color: #ff3333;
+   box-shadow: 0 5px 20px rgba(255, 51, 51, 0.1);
+  }
 
-    .plan-desc {
-      font-size: 0.95rem;
-      color: #ddd;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      flex-grow: 1;
-      text-align: left;
-    }
+  .card-laranja {
+   border-top-color: #ff8800;
+   box-shadow: 0 5px 20px rgba(255, 136, 0, 0.1);
+  }
 
-    .plan-features {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+  .card-verde:hover {
+   box-shadow: 0 10px 30px rgba(0, 204, 102, 0.2);
+  }
 
-    .plan-features li {
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
-      font-size: 0.9rem;
-    }
+  .card-azul:hover {
+   box-shadow: 0 10px 30px rgba(51, 153, 255, 0.2);
+  }
 
-    .plan-features li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
+  .card-vermelho:hover {
+   box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
+  }
 
-    .card-verde .plan-features li::before { color: #00cc66; }
-    .card-azul .plan-features li::before { color: #3399ff; }
-    .card-vermelho .plan-features li::before { color: #ff3333; }
-    .card-laranja .plan-features li::before { color: #ff8800; }
+  .card-laranja:hover {
+   box-shadow: 0 10px 30px rgba(255, 136, 0, 0.2);
+  }
 
-    .plan-investment {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 12px;
-      border-radius: 8px;
-      text-align: center;
-      margin-bottom: 15px;
-    }
+  .plan-title {
+   font-family: var(--font-title);
+   font-size: 1.2rem;
+   font-weight: 800;
+   text-transform: uppercase;
+   margin-bottom: 15px;
+   text-align: center;
+   color: #fff;
+   min-height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   letter-spacing: 0.5px;
+  }
 
-    .invest-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #aaa;
-      display: block;
-    }
+  .plan-desc {
+   font-size: 0.95rem;
+   color: #ddd;
+   line-height: 1.5;
+   margin-bottom: 20px;
+   flex-grow: 1;
+   text-align: left;
+  }
 
-    .invest-price {
-      font-family: var(--font-title);
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: #fff;
-      display: block;
-      margin: 2px 0;
-    }
+  .plan-features {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+  }
 
-    .plan-btn {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 0.85rem;
-      text-align: center;
-      display: block;
-      color: #fff;
-    }
+  .plan-features li {
+   margin-bottom: 8px;
+   padding-left: 20px;
+   position: relative;
+   font-size: 0.9rem;
+  }
 
-    .btn-verde-card { background: #009966; }
-    .btn-verde-card:hover { background: #007744; }
+  .plan-features li::before {
+   content: '✓';
+   position: absolute;
+   left: 0;
+   font-weight: bold;
+  }
 
-    .btn-azul-card { background: #005689; }
-    .btn-azul-card:hover { background: #003366; }
+  .card-verde .plan-features li::before {
+   color: #00cc66;
+  }
 
-    .btn-vermelho-card { background: transparent; border: 1px solid #ff3333; color: #ff3333; }
-    .btn-vermelho-card:hover { background: #ff3333; color: #fff; }
+  .card-azul .plan-features li::before {
+   color: #3399ff;
+  }
 
-    .btn-laranja-card { background: transparent; border: 1px solid #ff8800; color: #ff8800; }
-    .btn-laranja-card:hover { background: #ff8800; color: #fff; }
+  .card-vermelho .plan-features li::before {
+   color: #ff3333;
+  }
 
-    @media (max-width: 1024px) {
-      .plans-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .plans-grid { grid-template-columns: 1fr; }
-    }
+  .card-laranja .plan-features li::before {
+   color: #ff8800;
+  }
 
+  .plan-investment {
+   background: rgba(0, 0, 0, 0.2);
+   padding: 12px;
+   border-radius: 8px;
+   text-align: center;
+   margin-bottom: 15px;
+  }
+
+  .invest-label {
+   font-size: 0.7rem;
+   text-transform: uppercase;
+   color: #aaa;
+   display: block;
+  }
+
+  .invest-price {
+   font-family: var(--font-title);
+   font-weight: 800;
+   font-size: 1.3rem;
+   color: #fff;
+   display: block;
+   margin: 2px 0;
+  }
+
+  .plan-btn {
+   width: 100%;
+   padding: 10px;
+   border-radius: 6px;
+   border: none;
+   font-weight: 700;
+   text-transform: uppercase;
+   cursor: pointer;
+   transition: 0.3s;
+   font-size: 0.85rem;
+   text-align: center;
+   display: block;
+   color: #fff;
+  }
+
+  .btn-verde-card {
+   background: #009966;
+  }
+
+  .btn-verde-card:hover {
+   background: #007744;
+  }
+
+  .btn-azul-card {
+   background: #005689;
+  }
+
+  .btn-azul-card:hover {
+   background: #003366;
+  }
+
+  .btn-vermelho-card {
+   background: transparent;
+   border: 1px solid #ff3333;
+   color: #ff3333;
+  }
+
+  .btn-vermelho-card:hover {
+   background: #ff3333;
+   color: #fff;
+  }
+
+  .btn-laranja-card {
+   background: transparent;
+   border: 1px solid #ff8800;
+   color: #ff8800;
+  }
+
+  .btn-laranja-card:hover {
+   background: #ff8800;
+   color: #fff;
+  }
+
+  @media (max-width: 1024px) {
+   .plans-grid {
+    grid-template-columns: 1fr 1fr;
+   }
+  }
+
+  @media (max-width: 600px) {
+   .plans-grid {
+    grid-template-columns: 1fr;
+   }
+  }
 
   /* GALERIA SCROLL */
   #galeria-2024 {
@@ -1018,7 +1085,7 @@
   /* Aumentei o tempo para 100s para ficar suave com 3 listas */
   .speakers-track {
    display: flex;
-   gap: 30px;
+   gap: 40px;
    animation: scrollSpeakers 45s linear infinite;
    width: max-content;
   }
@@ -1064,27 +1131,44 @@
    object-fit: cover;
   }
 
+  /* 1. Espaço lateral entre um card e outro */
+  .speakers-track {
+   display: flex;
+   gap: 40px;
+   /* Aumentado de 30px para 40px para dar mais separação */
+   animation: scrollSpeakers 45s linear infinite;
+   width: max-content;
+  }
+
+  /* 2. Espaço interno do texto dentro do card */
   .speaker-overlay-info {
    position: absolute;
    bottom: 0;
    left: 0;
    width: 100%;
-   background: linear-gradient(to top, rgba(0, 51, 102, 1) 0%, rgba(0, 51, 102, 0.8) 50%, transparent 100%);
-   padding: 80px 20px 25px 20px;
+   /* Gradiente ajustado para garantir leitura conforme seu print */
+   background: linear-gradient(to top, #003366 30%, rgba(0, 51, 102, 0.9) 60%, transparent 100%);
+   padding: 60px 25px 35px 25px;
+   /* Aumentei o padding lateral (25px) e inferior (35px) */
    color: #fff;
   }
 
+  /* 3. Espaço entre o Nome do Palestrante e o Cargo */
   .speaker-name {
    font-family: var(--font-title);
    font-weight: 800;
-   font-size: 1.4rem;
-   margin-bottom: 5px;
+   font-size: 1.5rem;
+   margin-bottom: 12px;
+   /* Aumentado de 5px para 12px para separar melhor os textos */
    color: var(--color-secondary);
+   line-height: 1.1;
   }
 
   .speaker-role {
-   font-size: 0.9rem;
-   color: #fff;
+   font-size: 0.95rem;
+   color: #e0e0e0;
+   line-height: 1.5;
+   /* Melhor leitura para descrições longas (como a do Rafael) */
   }
 
   /* CONTAINER INTERNO PARA CARDS NAS SEÇÕES */
@@ -1227,7 +1311,8 @@
 
   .time {
    font-weight: 800;
-   font-size: 1rem; /* Fonte um pouco menor para caber */
+   font-size: 1rem;
+   /* Fonte um pouco menor para caber */
    text-align: center;
    line-height: 1.3;
    color: #444;
@@ -1343,7 +1428,8 @@
    font-weight: 800;
    color: var(--color-primary);
    text-align: center;
-   width: 110px; /* Mais largura para inicio/fim */
+   width: 110px;
+   /* Mais largura para inicio/fim */
    font-size: 1rem;
    line-height: 1.4;
   }
@@ -1863,7 +1949,8 @@
    }
 
    .schedule-item {
-    grid-template-columns: 80px 1fr; /* Ajustado mobile */
+    grid-template-columns: 80px 1fr;
+    /* Ajustado mobile */
     grid-template-rows: auto auto;
     gap: 10px 15px;
     text-align: left;
@@ -2228,7 +2315,7 @@
    </div>
 
    <div class="plans-grid">
-    
+
     <div class="plan-card card-verde">
      <h3 class="plan-title" style="color:#00cc66;">Imersão do Conhecimento</h3>
      <div class="plan-desc">
@@ -2437,15 +2524,15 @@
       <div class="speaker-role">Habilidades essenciais para o encantamento do cliente</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('José Haroldo Guimarães Filho', 'Conectividade Humana em tempos de conectividade digital', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('José Haroldo Guimarães Filho', 'Conectividade Humana em tempos de conectividade digital', 'https://static.wixstatic.com/media/4a9aeb_7aad86dce5e244afa1368d02749e2cfd~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_7aad86dce5e244afa1368d02749e2cfd~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
       <div class="speaker-name">José Haroldo Guimarães Filho</div>
       <div class="speaker-role">Conectividade Humana em tempos de conectividade digital</div>
      </div>
     </div>
-    <div class="speaker-card" onclick="openSpeakerModal('Roberto Taboada', 'Workshop “Desenvolvendo Líderes”', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600')">
-     <div class="speaker-img-wrapper"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600" loading="lazy"></div>
+    <div class="speaker-card" onclick="openSpeakerModal('Roberto Taboada', 'Workshop “Desenvolvendo Líderes”', 'https://static.wixstatic.com/media/4a9aeb_5f7db4094f4d45ee8e4a5ef5ef93dc1d~mv2.webp?q=80&w=600')">
+     <div class="speaker-img-wrapper"><img src="https://static.wixstatic.com/media/4a9aeb_5f7db4094f4d45ee8e4a5ef5ef93dc1d~mv2.webp?q=80&w=600" loading="lazy"></div>
      <div class="speaker-overlay-info">
       <div class="speaker-name">Roberto Taboada</div>
       <div class="speaker-role">Workshop “Desenvolvendo Líderes”</div>
@@ -2464,7 +2551,7 @@
      <a href="#inscricao" class="btn-inscricao btn-verde">FAÇA SUA INSCRIÇÃO</a>
     </div>
     <h2 class="section-title">Imersão do Conhecimento</h2>
-    <span class="section-subtitle">Palco Principal e Palestras Magnas</span>
+    <span class="section-subtitle">Palco Principal e Palestras Magnas | Manhã</span>
    </div>
 
    <div class="schedule-tabs" id="tabs-imersao">
@@ -2496,6 +2583,7 @@
       </div>
      </div>
     </div>
+
     <h3 class="tab-inner-title">Programação Detalhada</h3>
 
     <div class="schedule-item accent-blue">
@@ -2519,76 +2607,148 @@
     <div class="schedule-item accent-red">
      <div class="time">11:13 - 12:20</div>
      <div class="speaker-thumb">
-      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Palestrante">
+      <img src="https://static.wixstatic.com/media/4a9aeb_84bc035370af4991b670f6e0541d595b~mv2.webp?q=80&w=200" alt="Palestrante">
      </div>
      <div class="schedule-info">
-      <h4>O Estado da Arte na Tanatopraxia</h4>
-      <p>Dr. Carlos Mendes | Auditório Master</p>
+      <h4>Jornada Empreendedora</h4>
+      <p>Mauricio Filizola | Auditório Master</p>
+     </div>
+    </div>
+    <div class="schedule-item accent-red">
+     <div class="time">12:25 - 13:45</div>
+     <div class="speaker-thumb">
+      <img src="https://static.wixstatic.com/media/4a9aeb_28c997b13a2d4624abf096316fedf576~mv2.webp?q=80&w=200" alt="Palestrante">
+     </div>
+     <div class="schedule-info">
+      <h4>Crisa Santos</h4>
+      <p>Neuro Arquitetura e profissionais da área | Auditório Master</p>
      </div>
     </div>
    </div>
+
    <div id="imersao-day2" class="tab-content">
+
     <div class="inner-speakers-container">
-     <div class="speaker-card" onclick="openSpeakerModal('Sofia Martins', 'Sustentabilidade', 'https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600')">
+     <div class="speaker-card" onclick="openSpeakerModal('Luis Dib', 'MAG Seguros', 'https://static.wixstatic.com/media/4a9aeb_01134296309b482dbff5e728c0df9555~mv2.webp?q=80&w=600')">
       <div class="speaker-img-wrapper">
-       <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600" loading="lazy" alt="Sofia Martins">
+       <img src="https://static.wixstatic.com/media/4a9aeb_955924e842a74ec8a50ed6e257694bc3~mv2.jpeg?q=80&w=600" loading="lazy" alt="Luis Dib">
       </div>
       <div class="speaker-overlay-info">
-       <div class="speaker-name">Sofia Martins</div>
-       <div class="speaker-role">Sustentabilidade</div>
+       <div class="speaker-name">Luis Dib</div>
+       <div class="speaker-role">MAG Seguros</div>
+      </div>
+     </div>
+
+     <div class="inner-speakers-container">
+      <div class="speaker-card" onclick="openSpeakerModal('Carice Weber', 'MAG Seguros', 'https://static.wixstatic.com/media/4a9aeb_01134296309b482dbff5e728c0df9555~mv2.webp?q=80&w=600')">
+       <div class="speaker-img-wrapper">
+        <img src="https://static.wixstatic.com/media/4a9aeb_01134296309b482dbff5e728c0df9555~mv2.webp?q=80&w=600" loading="lazy" alt="Carice Weber">
+       </div>
+       <div class="speaker-overlay-info">
+        <div class="speaker-name">Carice Weber</div>
+        <div class="speaker-role">MAG Seguros</div>
+       </div>
+      </div>
+     </div>
+
+     <div class="inner-speakers-container">
+
+      <div class="speaker-card" onclick="openSpeakerModal('Luis Dib', 'MAG Seguros', 'https://static.wixstatic.com/media/4a9aeb_01134296309b482dbff5e728c0df9555~mv2.webp?q=80&w=600')">
+       <div class="speaker-img-wrapper">
+        <img src="https://static.wixstatic.com/media/4a9aeb_955924e842a74ec8a50ed6e257694bc3~mv2.jpeg?q=80&w=600" loading="lazy" alt="Luis Dib">
+       </div>
+       <div class="speaker-overlay-info">
+        <div class="speaker-name">Luis Dib</div>
+        <div class="speaker-role">MAG Seguros</div>
+       </div>
+      </div>
+     </div>
+
+     <div class="inner-speakers-container">
+      <div class="speaker-card" onclick="openSpeakerModal('Lais Xavier', 'Inovações', 'https://static.wixstatic.com/media/4a9aeb_9381ebccc7504380ad19a69fd749dc05~mv2.webp?q=80&w=600')">
+       <div class="speaker-img-wrapper">
+        <img src="https://static.wixstatic.com/media/4a9aeb_9381ebccc7504380ad19a69fd749dc05~mv2.webp?q=80&w=600" loading="lazy" alt="Lais Xavier">
+       </div>
+       <div class="speaker-overlay-info">
+        <div class="speaker-name">Lais Xavier</div>
+        <div class="speaker-role">Inovações</div>
+       </div>
+      </div>
+     </div>
+
+     <div class="inner-speakers-container">
+      <div class="speaker-card" onclick="openSpeakerModal('Sofia Martins', 'Sustentabilidade', 'https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600')">
+       <div class="speaker-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600" loading="lazy" alt="Sofia Martins">
+       </div>
+       <div class="speaker-overlay-info">
+        <div class="speaker-name">Sofia Martins</div>
+        <div class="speaker-role">Sustentabilidade</div>
+       </div>
+      </div>
+     </div>
+
+     <div class="inner-speakers-container">
+      <div class="speaker-card" onclick="openSpeakerModal('Sofia Martins', 'Sustentabilidade', 'https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600')">
+       <div class="speaker-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=600" loading="lazy" alt="Sofia Martins">
+       </div>
+       <div class="speaker-overlay-info">
+        <div class="speaker-name">Sofia Martins</div>
+        <div class="speaker-role">Sustentabilidade</div>
+       </div>
+      </div>
+     </div>
+
+     <h3 class="tab-inner-title">Programação Detalhada</h3>
+
+     <div class="schedule-item accent-red">
+      <div class="time">09:00 - 10:30</div>
+      <div class="speaker-thumb">
+       <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200" alt="Palestrante">
+      </div>
+      <div class="schedule-info">
+       <h4>Painel: Sustentabilidade</h4>
+       <p>Sofia Martins | Auditório Master</p>
       </div>
      </div>
     </div>
-
-    <h3 class="tab-inner-title">Programação Detalhada</h3>
-
-    <div class="schedule-item accent-red">
-     <div class="time">09:00 - 10:30</div>
-     <div class="speaker-thumb">
-      <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200" alt="Palestrante">
+    <div id="imersao-day3" class="tab-content">
+     <div class="inner-speakers-container">
+      <div class="speaker-card" onclick="openSpeakerModal('Marcos Viana', 'Tecnologia', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600')">
+       <div class="speaker-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600" loading="lazy" alt="Marcos Viana">
+       </div>
+       <div class="speaker-overlay-info">
+        <div class="speaker-name">Marcos Viana</div>
+        <div class="speaker-role">Tecnologia</div>
+       </div>
+      </div>
      </div>
-     <div class="schedule-info">
-      <h4>Painel: Sustentabilidade</h4>
-      <p>Sofia Martins | Auditório Master</p>
+
+     <h3 class="tab-inner-title">Programação Detalhada</h3>
+
+     <div class="schedule-item accent-red">
+      <div class="time">10:30 - 12:00</div>
+      <div class="speaker-thumb">
+       <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200" alt="Palestrante">
+      </div>
+      <div class="schedule-info">
+       <h4>Palestra Magna: Futuro Tecnológico</h4>
+       <p>Marcos Viana | Auditório Master</p>
+      </div>
+     </div>
+
+     <div class="schedule-item accent-blue">
+      <div class="time">14:30 - 16:00</div>
+      <div class="speaker-thumb empty"><i class="fa-solid fa-microphone-slash"></i></div>
+      <div class="schedule-info">
+       <h4>Encerramento Oficial</h4>
+       <p>Palco Principal</p>
+      </div>
      </div>
     </div>
    </div>
-   <div id="imersao-day3" class="tab-content">
-    <div class="inner-speakers-container">
-     <div class="speaker-card" onclick="openSpeakerModal('Marcos Viana', 'Tecnologia', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600')">
-      <div class="speaker-img-wrapper">
-       <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600" loading="lazy" alt="Marcos Viana">
-      </div>
-      <div class="speaker-overlay-info">
-       <div class="speaker-name">Marcos Viana</div>
-       <div class="speaker-role">Tecnologia</div>
-      </div>
-     </div>
-    </div>
-
-    <h3 class="tab-inner-title">Programação Detalhada</h3>
-
-    <div class="schedule-item accent-red">
-     <div class="time">10:30 - 12:00</div>
-     <div class="speaker-thumb">
-      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200" alt="Palestrante">
-     </div>
-     <div class="schedule-info">
-      <h4>Palestra Magna: Futuro Tecnológico</h4>
-      <p>Marcos Viana | Auditório Master</p>
-     </div>
-    </div>
-
-    <div class="schedule-item accent-blue">
-     <div class="time">14:30 - 16:00</div>
-     <div class="speaker-thumb empty"><i class="fa-solid fa-microphone-slash"></i></div>
-     <div class="schedule-info">
-      <h4>Encerramento Oficial</h4>
-      <p>Palco Principal</p>
-     </div>
-    </div>
-   </div>
-  </div>
  </section>
 
  <section id="aprofundamento" class="section-padding" style="background-color: #fff;">
