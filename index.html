@@ -772,234 +772,167 @@
    height: 100%;
    object-fit: cover;
   }
-
+  
   /* --- SEÇÃO PLANOS E IMERSÕES (Atualizado) --- */
-  #planos-imersao {
-   background-color: var(--color-primary);
-   background-image: radial-gradient(circle at 50% 0%, #004a75 0%, var(--color-primary) 80%);
-   color: #fff;
-   padding: 60px 0;
-  }
+    #planos-imersao {
+      background-color: var(--color-primary);
+      background-image: radial-gradient(circle at 50% 0%, #004a75 0%, var(--color-primary) 80%);
+      color: #fff;
+      padding: 60px 0;
+    }
 
-  #planos-imersao .section-title {
-   color: #fff;
-  }
+    #planos-imersao .section-title {
+      color: #fff;
+    }
 
-  #planos-imersao .section-title::after {
-   background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.2));
-  }
+    #planos-imersao .section-title::after {
+      background: linear-gradient(90deg, #fff, rgba(255,255,255,0.2));
+    }
 
-  .plans-grid {
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 20px;
-   margin-top: 30px;
-   align-items: stretch;
-  }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+      align-items: stretch;
+    }
 
-  .plan-card {
-   background: rgba(255, 255, 255, 0.03);
-   backdrop-filter: blur(10px);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   border-top: 4px solid;
-   border-radius: 12px;
-   padding: 25px 20px;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   transition: transform 0.3s, box-shadow 0.3s;
-   height: 100%;
-  }
+    .plan-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid;
+      border-radius: 12px;
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+    }
 
-  .plan-card:hover {
-   transform: translateY(-5px);
-   background: rgba(255, 255, 255, 0.08);
-  }
+    .plan-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-  .card-verde {
-   border-top-color: #00cc66;
-   box-shadow: 0 5px 20px rgba(0, 204, 102, 0.1);
-  }
+    .card-verde { border-top-color: #00cc66; box-shadow: 0 5px 20px rgba(0, 204, 102, 0.1); }
+    .card-azul { border-top-color: #3399ff; box-shadow: 0 5px 20px rgba(51, 153, 255, 0.1); }
+    .card-vermelho { border-top-color: #ff3333; box-shadow: 0 5px 20px rgba(255, 51, 51, 0.1); }
+    .card-laranja { border-top-color: #ff8800; box-shadow: 0 5px 20px rgba(255, 136, 0, 0.1); }
 
-  .card-azul {
-   border-top-color: #3399ff;
-   box-shadow: 0 5px 20px rgba(51, 153, 255, 0.1);
-  }
+    .card-verde:hover { box-shadow: 0 10px 30px rgba(0, 204, 102, 0.2); }
+    .card-azul:hover { box-shadow: 0 10px 30px rgba(51, 153, 255, 0.2); }
+    .card-vermelho:hover { box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2); }
+    .card-laranja:hover { box-shadow: 0 10px 30px rgba(255, 136, 0, 0.2); }
 
-  .card-vermelho {
-   border-top-color: #ff3333;
-   box-shadow: 0 5px 20px rgba(255, 51, 51, 0.1);
-  }
+    .plan-title {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #fff;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.5px;
+    }
 
-  .card-laranja {
-   border-top-color: #ff8800;
-   box-shadow: 0 5px 20px rgba(255, 136, 0, 0.1);
-  }
+    .plan-desc {
+      font-size: 0.95rem;
+      color: #ddd;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      text-align: left;
+    }
 
-  .card-verde:hover {
-   box-shadow: 0 10px 30px rgba(0, 204, 102, 0.2);
-  }
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-  .card-azul:hover {
-   box-shadow: 0 10px 30px rgba(51, 153, 255, 0.2);
-  }
+    .plan-features li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      font-size: 0.9rem;
+    }
 
-  .card-vermelho:hover {
-   box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
-  }
+    .plan-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
 
-  .card-laranja:hover {
-   box-shadow: 0 10px 30px rgba(255, 136, 0, 0.2);
-  }
+    .card-verde .plan-features li::before { color: #00cc66; }
+    .card-azul .plan-features li::before { color: #3399ff; }
+    .card-vermelho .plan-features li::before { color: #ff3333; }
+    .card-laranja .plan-features li::before { color: #ff8800; }
 
-  .plan-title {
-   font-family: var(--font-title);
-   font-size: 1.2rem;
-   font-weight: 800;
-   text-transform: uppercase;
-   margin-bottom: 15px;
-   text-align: center;
-   color: #fff;
-   min-height: 40px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   letter-spacing: 0.5px;
-  }
+    .plan-investment {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
 
-  .plan-desc {
-   font-size: 0.95rem;
-   color: #ddd;
-   line-height: 1.5;
-   margin-bottom: 20px;
-   flex-grow: 1;
-   text-align: left;
-  }
+    .invest-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #aaa;
+      display: block;
+    }
 
-  .plan-features {
-   list-style: none;
-   padding: 0;
-   margin: 0;
-  }
+    .invest-price {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+      display: block;
+      margin: 2px 0;
+    }
 
-  .plan-features li {
-   margin-bottom: 8px;
-   padding-left: 20px;
-   position: relative;
-   font-size: 0.9rem;
-  }
+    .plan-btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.85rem;
+      text-align: center;
+      display: block;
+      color: #fff;
+    }
 
-  .plan-features li::before {
-   content: '✓';
-   position: absolute;
-   left: 0;
-   font-weight: bold;
-  }
+    .btn-verde-card { background: #009966; }
+    .btn-verde-card:hover { background: #007744; }
 
-  .card-verde .plan-features li::before {
-   color: #00cc66;
-  }
+    .btn-azul-card { background: #005689; }
+    .btn-azul-card:hover { background: #003366; }
 
-  .card-azul .plan-features li::before {
-   color: #3399ff;
-  }
+    .btn-vermelho-card { background: transparent; border: 1px solid #ff3333; color: #ff3333; }
+    .btn-vermelho-card:hover { background: #ff3333; color: #fff; }
 
-  .card-vermelho .plan-features li::before {
-   color: #ff3333;
-  }
+    .btn-laranja-card { background: transparent; border: 1px solid #ff8800; color: #ff8800; }
+    .btn-laranja-card:hover { background: #ff8800; color: #fff; }
 
-  .card-laranja .plan-features li::before {
-   color: #ff8800;
-  }
+    @media (max-width: 1024px) {
+      .plans-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .plans-grid { grid-template-columns: 1fr; }
+    }
 
-  .plan-investment {
-   background: rgba(0, 0, 0, 0.2);
-   padding: 12px;
-   border-radius: 8px;
-   text-align: center;
-   margin-bottom: 15px;
-  }
-
-  .invest-label {
-   font-size: 0.7rem;
-   text-transform: uppercase;
-   color: #aaa;
-   display: block;
-  }
-
-  .invest-price {
-   font-family: var(--font-title);
-   font-weight: 800;
-   font-size: 1.3rem;
-   color: #fff;
-   display: block;
-   margin: 2px 0;
-  }
-
-  .plan-btn {
-   width: 100%;
-   padding: 10px;
-   border-radius: 6px;
-   border: none;
-   font-weight: 700;
-   text-transform: uppercase;
-   cursor: pointer;
-   transition: 0.3s;
-   font-size: 0.85rem;
-   text-align: center;
-   display: block;
-   color: #fff;
-  }
-
-  .btn-verde-card {
-   background: #009966;
-  }
-
-  .btn-verde-card:hover {
-   background: #007744;
-  }
-
-  .btn-azul-card {
-   background: #005689;
-  }
-
-  .btn-azul-card:hover {
-   background: #003366;
-  }
-
-  .btn-vermelho-card {
-   background: transparent;
-   border: 1px solid #ff3333;
-   color: #ff3333;
-  }
-
-  .btn-vermelho-card:hover {
-   background: #ff3333;
-   color: #fff;
-  }
-
-  .btn-laranja-card {
-   background: transparent;
-   border: 1px solid #ff8800;
-   color: #ff8800;
-  }
-
-  .btn-laranja-card:hover {
-   background: #ff8800;
-   color: #fff;
-  }
-
-  @media (max-width: 1024px) {
-   .plans-grid {
-    grid-template-columns: 1fr 1fr;
-   }
-  }
-
-  @media (max-width: 600px) {
-   .plans-grid {
-    grid-template-columns: 1fr;
-   }
-  }
 
   /* GALERIA SCROLL */
   #galeria-2024 {
@@ -1268,7 +1201,8 @@
    margin-bottom: 20px;
    border-radius: 16px;
    display: grid;
-   grid-template-columns: 80px 70px 1fr;
+   /* Aumentei a coluna de tempo para caber inicio/fim */
+   grid-template-columns: 110px 70px 1fr;
    align-items: center;
    gap: 20px;
    border-left: 6px solid #ccc;
@@ -1293,8 +1227,10 @@
 
   .time {
    font-weight: 800;
-   font-size: 1.2rem;
+   font-size: 1rem; /* Fonte um pouco menor para caber */
    text-align: center;
+   line-height: 1.3;
+   color: #444;
   }
 
   .speaker-thumb {
@@ -1407,8 +1343,9 @@
    font-weight: 800;
    color: var(--color-primary);
    text-align: center;
-   width: 100px;
-   font-size: 1.1rem;
+   width: 110px; /* Mais largura para inicio/fim */
+   font-size: 1rem;
+   line-height: 1.4;
   }
 
   .content-col {
@@ -1926,7 +1863,7 @@
    }
 
    .schedule-item {
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 80px 1fr; /* Ajustado mobile */
     grid-template-rows: auto auto;
     gap: 10px 15px;
     text-align: left;
@@ -1992,6 +1929,7 @@
     padding: 12px 20px;
     font-size: 1.2rem;
     border-bottom: none;
+    width: 100%;
    }
 
    .custom-table td.content-col {
@@ -2290,7 +2228,7 @@
    </div>
 
    <div class="plans-grid">
-
+    
     <div class="plan-card card-verde">
      <h3 class="plan-title" style="color:#00cc66;">Imersão do Conhecimento</h3>
      <div class="plan-desc">
@@ -2561,7 +2499,7 @@
     <h3 class="tab-inner-title">Programação Detalhada</h3>
 
     <div class="schedule-item accent-blue">
-     <div class="time">09:00</div>
+     <div class="time">09:00 - 10:00</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-microphone"></i></div>
      <div class="schedule-info">
       <h4>Abertura oficial e Reconhecimento 2ª edição - Caminhos da Sustentabilidade – Feira Funerária</h4>
@@ -2570,7 +2508,7 @@
     </div>
 
     <div class="schedule-item accent-blue">
-     <div class="time">10h03 às 11h10</div>
+     <div class="time">10:03 - 11:10</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-microphone"></i></div>
      <div class="schedule-info">
       <h4>Atração Nacional</h4>
@@ -2579,7 +2517,7 @@
     </div>
 
     <div class="schedule-item accent-red">
-     <div class="time">11h13 às 12h20</div>
+     <div class="time">11:13 - 12:20</div>
      <div class="speaker-thumb">
       <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Palestrante">
      </div>
@@ -2605,7 +2543,7 @@
     <h3 class="tab-inner-title">Programação Detalhada</h3>
 
     <div class="schedule-item accent-red">
-     <div class="time">09:00</div>
+     <div class="time">09:00 - 10:30</div>
      <div class="speaker-thumb">
       <img src="https://images.unsplash.com/photo-1598550874175-4d7112ee7e8e?q=80&w=200" alt="Palestrante">
      </div>
@@ -2631,7 +2569,7 @@
     <h3 class="tab-inner-title">Programação Detalhada</h3>
 
     <div class="schedule-item accent-red">
-     <div class="time">10:30</div>
+     <div class="time">10:30 - 12:00</div>
      <div class="speaker-thumb">
       <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200" alt="Palestrante">
      </div>
@@ -2642,7 +2580,7 @@
     </div>
 
     <div class="schedule-item accent-blue">
-     <div class="time">14:30</div>
+     <div class="time">14:30 - 16:00</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-microphone-slash"></i></div>
      <div class="schedule-info">
       <h4>Encerramento Oficial</h4>
@@ -2690,7 +2628,7 @@
     </div>
     <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-blue">
-     <div class="time">14:00</div>
+     <div class="time">14:00 - 15:30</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200" alt="Palestrante"></div>
      <div class="schedule-info">
       <h4>Workshop: Marketing Digital</h4>
@@ -2698,7 +2636,7 @@
      </div>
     </div>
     <div class="schedule-item accent-blue">
-     <div class="time">16:00</div>
+     <div class="time">16:00 - 17:30</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200" alt="Palestrante"></div>
      <div class="schedule-info">
       <h4>Psicologia do Luto</h4>
@@ -2727,7 +2665,7 @@
     </div>
     <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-blue">
-     <div class="time">11:00</div>
+     <div class="time">11:00 - 12:30</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200" alt="Palestrante"></div>
      <div class="schedule-info">
       <h4>Gestão Humanizada 4.0</h4>
@@ -2735,7 +2673,7 @@
      </div>
     </div>
     <div class="schedule-item accent-blue">
-     <div class="time">14:00</div>
+     <div class="time">14:00 - 15:30</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200" alt="Palestrante"></div>
      <div class="schedule-info">
       <h4>Logística e Transporte</h4>
@@ -2757,7 +2695,7 @@
     </div>
     <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-blue">
-     <div class="time">09:00</div>
+     <div class="time">09:00 - 10:30</div>
      <div class="speaker-thumb"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200" alt="Palestrante"></div>
      <div class="schedule-info">
       <h4>Bioética no Atendimento</h4>
@@ -2829,37 +2767,37 @@
       </thead>
       <tbody>
        <tr>
-        <td class="time-col">14h</td>
+        <td class="time-col">14:00 - 14:50</td>
         <td class="content-col"><strong>Tema:</strong> Inovação Multiespécie</td>
         <td class="content-col">TANATOPRAXIA: Evolução Histórica</td>
        </tr>
        <tr>
-        <td class="time-col">14h50</td>
+        <td class="time-col">14:50 - 15:40</td>
         <td class="content-col">Cobrança (Desafios e Ações)</td>
         <td class="content-col">Causos e Contos com Vicente Jales</td>
        </tr>
        <tr>
-        <td class="time-col">15h40</td>
+        <td class="time-col">15:40 - 16:30</td>
         <td class="content-col">Liderança Feminina</td>
         <td class="content-col"><strong>Tema: A arte de transformar despedidas</strong></td>
        </tr>
        <tr>
-        <td class="time-col">16h30</td>
+        <td class="time-col">16:30 - 17:30</td>
         <td class="content-col"><strong>Roda de conversa</strong> - Gestão Feminina</td>
         <td class="content-col">Organização e Inclusão</td>
        </tr>
        <tr>
-        <td class="time-col">17h30</td>
+        <td class="time-col">17:30 - 18:30</td>
         <td class="content-col" style="text-align:center;"><strong>CASES DO SEGMENTO</strong></td>
         <td class="content-col"><strong>Tema:</strong> Caminhos da Sustentabilidade</td>
        </tr>
        <tr>
-        <td class="time-col">18h30</td>
+        <td class="time-col">18:30 - 19:00</td>
         <td class="content-col"><strong>Tema:</strong> 3 pilares do Encantamento</td>
         <td class="content-col"><strong>Tema:</strong> DOULA DA MORTE</td>
        </tr>
        <tr>
-        <td class="time-col">18h40</td>
+        <td class="time-col">19:00 - 20:00</td>
         <td colspan="2" class="special-row">HAPPY HOUR</td>
        </tr>
       </tbody>
@@ -2882,17 +2820,17 @@
       </thead>
       <tbody>
        <tr>
-        <td class="time-col">14h</td>
+        <td class="time-col">14:00 - 15:40</td>
         <td class="content-col">Gestão de Cemitérios</td>
         <td class="content-col">Novos Processos</td>
        </tr>
        <tr>
-        <td class="time-col">15h40</td>
+        <td class="time-col">15:40 - 17:00</td>
         <td class="content-col">Marketing Funerário</td>
         <td class="content-col">Psicologia do Luto</td>
        </tr>
        <tr>
-        <td class="time-col">18h40</td>
+        <td class="time-col">17:00 - 19:00</td>
         <td colspan="2" class="special-row">HAPPY HOUR</td>
        </tr>
       </tbody>
@@ -2937,22 +2875,22 @@
       </thead>
       <tbody>
        <tr>
-        <td class="time-col">14h</td>
+        <td class="time-col">14:00 - 15:40</td>
         <td class="content-col">Gestão de Cemitérios</td>
         <td class="content-col">Inovação em Cremação</td>
        </tr>
        <tr>
-        <td class="time-col">15h40</td>
+        <td class="time-col">15:40 - 17:30</td>
         <td class="content-col">Marketing Digital</td>
         <td class="content-col">Acolhimento Humanizado</td>
        </tr>
        <tr>
-        <td class="time-col">17h30</td>
+        <td class="time-col">17:30 - 18:40</td>
         <td class="content-col">Case de Sucesso</td>
         <td class="content-col">Vendas Consultivas</td>
        </tr>
        <tr>
-        <td class="time-col">18h40</td>
+        <td class="time-col">18:40 - 20:00</td>
         <td colspan="2" class="special-row">HAPPY HOUR</td>
        </tr>
       </tbody>
@@ -2975,17 +2913,17 @@
       </thead>
       <tbody>
        <tr>
-        <td class="time-col">14h</td>
+        <td class="time-col">14:00 - 15:40</td>
         <td class="content-col">Tecnologia</td>
         <td class="content-col">Bioética</td>
        </tr>
        <tr>
-        <td class="time-col">15h40</td>
+        <td class="time-col">15:40 - 17:30</td>
         <td class="content-col">Cerimonial</td>
         <td class="content-col">Arquitetura</td>
        </tr>
        <tr>
-        <td class="time-col">18h40</td>
+        <td class="time-col">17:30 - 19:00</td>
         <td colspan="2" class="special-row">HAPPY HOUR</td>
        </tr>
       </tbody>
@@ -3023,21 +2961,21 @@
       </thead>
       <tbody>
        <tr>
-        <td class="time-col">14h</td>
+        <td class="time-col">14:00 - 15:40</td>
         <td class="content-col">Direito Funerário</td>
         <td class="content-col">Tecnologia e Softwares</td>
        </tr>
        <tr>
-        <td class="time-col">15h40</td>
+        <td class="time-col">15:40 - 17:30</td>
         <td class="content-col">Luto e Psicologia</td>
         <td class="content-col">Tanatopraxia Avançada</td>
        </tr>
        <tr>
-        <td class="time-col">17h30</td>
+        <td class="time-col">17:30 - 18:30</td>
         <td colspan="2" style="text-align:center;"><strong>ENCERRAMENTO E SORTEIOS</strong></td>
        </tr>
        <tr>
-        <td class="time-col">18h40</td>
+        <td class="time-col">18:30 - 20:00</td>
         <td colspan="2" class="special-row">HAPPY HOUR</td>
        </tr>
       </tbody>
@@ -3060,17 +2998,17 @@
       </thead>
       <tbody>
        <tr>
-        <td class="time-col">14h</td>
+        <td class="time-col">14:00 - 15:40</td>
         <td class="content-col">Sustentabilidade</td>
         <td class="content-col">Logística</td>
        </tr>
        <tr>
-        <td class="time-col">15h40</td>
+        <td class="time-col">15:40 - 17:30</td>
         <td class="content-col">Gestão de Crise</td>
         <td class="content-col">Vendas</td>
        </tr>
        <tr>
-        <td class="time-col">18h40</td>
+        <td class="time-col">17:30 - 19:00</td>
         <td colspan="2" class="special-row">HAPPY HOUR</td>
        </tr>
       </tbody>
@@ -3111,7 +3049,7 @@
 
     <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-orange">
-     <div class="time">14:30</div>
+     <div class="time">14:30 - 15:10</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Mercado Pet: Tendências</h4>
@@ -3119,7 +3057,7 @@
      </div>
     </div>
     <div class="schedule-item accent-orange">
-     <div class="time">15:10</div>
+     <div class="time">15:10 - 15:40</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Cerimonial de Despedida Pet</h4>
@@ -3127,7 +3065,7 @@
      </div>
     </div>
     <div class="schedule-item accent-orange">
-     <div class="time">15:40</div>
+     <div class="time">15:40 - 16:15</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Legislação e Cremação Pet</h4>
@@ -3135,7 +3073,7 @@
      </div>
     </div>
     <div class="schedule-item accent-orange">
-     <div class="time">16:15</div>
+     <div class="time">16:15 - 16:50</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Luto por Animais de Estimação</h4>
@@ -3143,7 +3081,7 @@
      </div>
     </div>
     <div class="schedule-item accent-orange">
-     <div class="time">16:50</div>
+     <div class="time">16:50 - 17:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Gestão de Crematórios Pet</h4>
@@ -3151,7 +3089,7 @@
      </div>
     </div>
     <div class="schedule-item accent-orange">
-     <div class="time">17:30</div>
+     <div class="time">17:30 - 18:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Cases de Sucesso</h4>
@@ -3174,7 +3112,7 @@
 
     <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-orange">
-     <div class="time">14:30</div>
+     <div class="time">14:30 - 15:10</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Inovação em Produtos Pet</h4>
@@ -3182,7 +3120,7 @@
      </div>
     </div>
     <div class="schedule-item accent-orange">
-     <div class="time">15:10</div>
+     <div class="time">15:10 - 16:30</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>Marketing para Setor Pet</h4>
@@ -3205,7 +3143,7 @@
 
     <h3 class="tab-inner-title">Programação Detalhada</h3>
     <div class="schedule-item accent-orange">
-     <div class="time">14:30</div>
+     <div class="time">14:30 - 16:00</div>
      <div class="speaker-thumb empty"><i class="fa-solid fa-paw"></i></div>
      <div class="schedule-info">
       <h4>O Futuro do Setor Pet</h4>
