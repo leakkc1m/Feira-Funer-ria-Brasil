@@ -1283,40 +1283,58 @@
   }
 
   .card-social-icon {
-   color: rgba(255, 255, 255, 0.9);
-   font-size: 1.1rem;
-   transition: all 0.3s ease;
-   width: 32px;
-   height: 32px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   border-radius: 50%;
-   background: rgba(255, 255, 255, 0.15);
-   border: 1px solid rgba(255, 255, 255, 0.2);
-   text-decoration: none;
+    width: 32px; 
+    height: 32px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    background: #ffffff; /* Fundo BRANCO para destacar */
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+    border: none; /* Remove bordas antigas se houver */
   }
 
   .card-social-icon:hover {
-   color: #fff;
-   transform: translateY(-3px);
-   background: #fff;
-   border-color: #fff;
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); 
+    background: #fff; /* Garante que continua branco */
   }
 
-  .card-social-icon:hover .fa-instagram {
-   color: #E1306C !important;
-  }
+ /* --- CORES DAS MARCAS --- */
 
-  .card-social-icon:hover .fa-linkedin {
-   color: #0077b5 !important;
-  }
+/* Instagram (Rosa/Roxo) */
+.card-social-icon .fa-instagram { 
+    color: #E1306C !important; 
+}
 
-  .card-social-icon svg,
-  .card-social-icon i {
-   width: 14px !important;
-   height: 14px !important;
-   font-size: 14px !important;
+/* LinkedIn (Azul) */
+.card-social-icon .fa-linkedin, 
+.card-social-icon .fa-linkedin-in { 
+    color: #0077b5 !important; 
+}
+
+/* Facebook (Azul) */
+.card-social-icon .fa-facebook-f { 
+    color: #1877F2 !important; 
+}
+
+/* YouTube (Vermelho) */
+.card-social-icon .fa-youtube { 
+    color: #FF0000 !important; 
+}
+
+/* Site/Globo (Azul Claro) */
+.card-social-icon .fa-globe { 
+    color: #00a0e3 !important; 
+}
+
+.card-social-icon i, 
+.card-social-icon svg { 
+    font-size: 16px !important; 
+    width: 16px !important; 
+    height: 16px !important;
   }
 
   .nav-arrow {
@@ -1814,29 +1832,41 @@
    transform: rotate(90deg);
   }
 
-  .modal-socials {
-   display: flex;
-   gap: 15px;
-   margin-top: 30px;
-  }
+ /* --- Ícones dentro do MODAL (Janela que abre) --- */
+.modal-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
 
-  .social-icon {
-   width: 40px;
-   height: 40px;
-   border-radius: 50%;
-   background: #f0f0f0;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #666;
-   transition: 0.3s;
-   cursor: pointer;
-  }
+.modal-socials .social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #f0f0f0; /* Fundo cinza claro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 20px;
+}
 
-  .social-icon:hover {
-   transform: scale(1.1);
-   color: #fff;
-  }
+/* Cores Específicas no MODAL */
+.modal-socials .social-ig i { color: #E1306C; }
+.modal-socials .social-in i { color: #0077b5; }
+.modal-socials .social-web i { color: #00a0e3; }
+
+/* Efeito Hover no MODAL (Fica colorido com ícone branco) */
+.modal-socials .social-ig:hover { background: #E1306C; transform: translateY(-3px); }
+.modal-socials .social-ig:hover i { color: #fff; }
+
+.modal-socials .social-in:hover { background: #0077b5; transform: translateY(-3px); }
+.modal-socials .social-in:hover i { color: #fff; }
+
+.modal-socials .social-web:hover { background: #00a0e3; transform: translateY(-3px); }
+.modal-socials .social-web:hover i { color: #fff; }
 
   .modal-content.photo-content {
    background: transparent;
@@ -2226,15 +2256,15 @@
   </div>
   <div class="hero-sponsors-wrapper">
    <div class="hero-sponsors-container">
-    <div class="hero-sponsors-title">Patrocinadores Oficiais</div>
+    <div class="hero-sponsors-title">Incentivadores Arrochados</div>
     <div class="sponsors-ticker-wrap">
      <div class="sponsors-ticker">
       <img src="https://static.wixstatic.com/media/4a9aeb_cc0a947938e84bedb2fc8bc4139eb0e0~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_1e730387bad6403ea21fed7ec4e6dce7~mv2.png" class="sponsor-logo-hero">
-      <img src="https://static.wixstatic.com/media/4a9aeb_3cbf6e4defff4a67b45287d186edc31f~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_cc0a947938e84bedb2fc8bc4139eb0e0~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_1e730387bad6403ea21fed7ec4e6dce7~mv2.png" class="sponsor-logo-hero">
       <img src="https://static.wixstatic.com/media/4a9aeb_24bd9c789aea406b856ad509f7beb4e0~mv2.png" class="sponsor-logo-hero">
+      <img src="https://static.wixstatic.com/media/4a9aeb_1e730387bad6403ea21fed7ec4e6dce7~mv2.png" class="sponsor-logo-hero">
      </div>
     </div>
    </div>
@@ -2422,7 +2452,6 @@
     <h3 class="category-title">Incentivador Regional</h3>
     <div class="sponsors-grid regional-grid">
      <a href="#" target="_blank" class="sponsor-item"><img src="https://static.wixstatic.com/media/4a9aeb_3cbf6e4defff4a67b45287d186edc31f~mv2.png" alt="Incentivador Regional 1"></a>
-     <a href="#" target="_blank" class="sponsor-item"><img src="https://static.wixstatic.com/media/4a9aeb_cc0a947938e84bedb2fc8bc4139eb0e0~mv2.png" alt="Incentivador Regional 2"></a>
      <a href="https://www.rosamaster.com.br/" target="_blank" class="sponsor-item"><img src="https://static.wixstatic.com/media/4a9aeb_1508c37cbc324897824dc21b81a274ec~mv2.png" alt="Rosa Master"></a>
      <a href="#" target="_blank" class="sponsor-item"><img src="https://static.wixstatic.com/media/4a9aeb_24bd9c789aea406b856ad509f7beb4e0~mv2.png" alt="Incentivador Regional 4"></a>
     </div>
@@ -2436,11 +2465,8 @@
    <div class="gallery-loop-wrapper">
     <div class="gallery-scroller scroller-left">
      <div class="scroller-inner">
-      <img src="https://static.wixstatic.com/media/4a9aeb_14fa91b5208e410399f35ae69010361b~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_218c211ad8e7425191fc3382c9f107c6~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_9382469f841846f68f6c4661f27fb551~mv2.jpg" loading="lazy">
-      <img src="https://static.wixstatic.com/media/4a9aeb_86626212d7a34823875729a60e56362f~mv2.jpg" loading="lazy">
-      <img src="https://static.wixstatic.com/media/4a9aeb_b240299f84b641998e8b37b2b0158274~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_47a856e93a67479f892ee2868eaa8e06~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_54454d5e676a44efbe727897d6b19bfd~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_ba62d70651e649f3a3c3182437ffe583~mv2.jpg" loading="lazy">
@@ -2450,7 +2476,6 @@
     </div>
     <div class="gallery-scroller scroller-right">
      <div class="scroller-inner">
-      <img src="https://static.wixstatic.com/media/4a9aeb_aa28d47b617741feaca2029877cb0811~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_63435a09fe2946bdad3e096cd0e6a85d~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_a7d7e43799754dc8ab61d5f59ce34fc4~mv2.jpg" loading="lazy">
       <img src="https://static.wixstatic.com/media/4a9aeb_531a2a7806304a3aa117e289ebc3710f~mv2.jpg" loading="lazy">
